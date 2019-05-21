@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.stats-container {
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.stat-container {
+  border: 1px solid black;
+  width: 85%;
+  min-height: 350px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 5%;
+}
+
+.stat-name {
+  float: left;
+  width: 49%;
+}
+
+.stat-abilities {
+  float: left;
+  width: 49%;
+}
