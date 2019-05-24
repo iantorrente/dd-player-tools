@@ -16,7 +16,6 @@ class RaceSnippet extends Component {
     const statName = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
     const modifiers = statMods.map((stat, i) => {
       if (race[statMods[i]] !== 0) {
-        // modifiers.push(statName[i] + " +" + race[statMods[i]]);
         return (<p key={i}>{statName[i]} +{race[statMods[i]]}</p>)
       }
     });
@@ -47,7 +46,6 @@ class RaceSnippet extends Component {
 
   getExtraChoices(race, choiceNum) {
     const choiceVersion = `extraChoices${choiceNum}`;
-    console.log(choiceVersion);
     if (Object.keys(race[choiceVersion]).length > 0) {
       const extraChoices = Object.keys(race[choiceVersion]).map((extraChoice, i) => {
         return (
@@ -70,7 +68,6 @@ class RaceSnippet extends Component {
 
   render() {
     const selectedRace = RACE[this.props.race];
-    console.log(this.state);
     return (
       <div className='race-snippet'>
         <div className='modifiers-list'>
