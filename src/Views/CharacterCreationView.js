@@ -18,12 +18,11 @@ class CharacterCreationView extends Component {
   }
 
   render() {
-    console.log(RACES);
     return (
       <div className='character-creation-view'>
         <h1>Character Creator</h1>
-        <div>
-          <h3 className='cc-step'>Step 1) Choose a Race</h3>
+        <div className='step-section'>
+          <h2 className='cc-step'>Step 1) Choose a Race</h2>
           <select className='race-selection' onChange={this.handleRaceSelection} value={this.state.raceSelected}>
             <option value="dragonborn">Dragonborn</option>
             <option value="dwarf">Dwarf</option>
@@ -37,20 +36,20 @@ class CharacterCreationView extends Component {
           </select>
           <RaceSnippet race={this.state.raceSelected} />
         </div>
-        <div>
-        <h3 className='cc-step'>Step 2) Choose a Class</h3>
+        <div className='step-section'>
+          <h2 className='cc-step'>Step 2) Choose a Class</h2>
         </div>
-        <div>
-        <h3 className='cc-step'>Step 3) Set a Starting Level</h3>
+        <div className='step-section'>
+          <h2 className='cc-step'>Step 3) Set a Starting Level</h2>
         </div>
-        <div>
-        <h3 className='cc-step'>Step 4) Choose a Background</h3>
+        <div className='step-section'>
+          <h2 className='cc-step'>Step 4) Choose a Background</h2>
         </div>
-        <div>
-        <h3 className='cc-step'>Step 5) Name Your Character</h3>
+        <div className='step-section'>
+          <h2 className='cc-step'>Step 5) Name Your Character</h2>
         </div>
-        <div>
-        <h3 className='cc-step'>Step 6) Choose an Alignment</h3>
+        <div className='step-section'>
+          <h2 className='cc-step'>Step 6) Choose an Alignment</h2>
         </div>
       </div>
     );

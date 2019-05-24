@@ -6,12 +6,11 @@ const HALFLING = {
   intMod: 0,
   wisMod: 0,
   chaMod: 0,
-  moveSpeed: 0,
+  moveSpeed: 25,
   proficiencies: [],
   features: ['lucky', 'brave', 'halfling nimbleness'],
   languages: ['common', 'halfling'],
   size: 'small',
-  speed: 25,
   extraChoicesName: 'Halfling Subrace',
   extraChoices: [
     {

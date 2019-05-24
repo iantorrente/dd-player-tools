@@ -6,12 +6,11 @@ const ELF = {
   intMod: 0,
   wisMod: 0,
   chaMod: 0,
-  moveSpeed: 0,
+  moveSpeed: 30,
   proficiencies: ['perception'],
   features: ['darkvision', 'fey ancestry', 'trance'],
   languages: ['common', 'elvish'],
   size: 'medium',
-  speed: 30,
   extraChoicesName: 'Elven Subrace',
   extraChoices: [
     {

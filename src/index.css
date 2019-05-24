@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(143, 143, 143);
+  background-color: rgb(107, 107, 107);
   text-align: center;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -65,7 +65,8 @@ code {
   width: 25%;
 }
 
-.cc-step {
+.step-section {
+  background-color: rgb(145, 145, 145);
 }
 
 .race-selection {
@@ -77,6 +78,7 @@ code {
 
 .race-snippet {
   background-color: white;
+  text-align: center;
   margin-right: auto;
   margin-left: auto;
   margin-top: 2%;
@@ -84,17 +86,18 @@ code {
   width: 80%;
 }
 
+.race-snippet h3 {
+  background-color: rgb(194, 194, 194);
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
 .modifiers-list {
-  text-align: left;
-  width: 50%;
+  text-align: center;
 }
 
 .proficiencies-list {
-  text-align: left;
-  width: 50%;
 }
 
 .features-list {
-  text-align: left;
-  width: 50%;
 }

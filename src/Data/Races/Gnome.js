@@ -6,12 +6,11 @@ const GNOME = {
   intMod: 2,
   wisMod: 0,
   chaMod: 0,
-  moveSpeed: 0,
+  moveSpeed: 25,
   proficiencies: [],
   features: ['gnome cunning'],
   languages: ['common', 'gnomish'],
   size: 'small',
-  speed: 0,
   extraChoicesName: 'Gnomish Subrace',
   extraChoices: [
     {

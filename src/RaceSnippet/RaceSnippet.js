@@ -16,7 +16,7 @@ class RaceSnippet extends Component {
     const modifiers = statMods.map((stat, i) => {
       if (race[statMods[i]] !== 0) {
         // modifiers.push(statName[i] + " +" + race[statMods[i]]);
-        return (<li key={i}>{statName[i]} +{race[statMods[i]]}</li>)
+        return (<p key={i}>{statName[i]} +{race[statMods[i]]}</p>)
       }
     });
     return modifiers;
@@ -26,7 +26,7 @@ class RaceSnippet extends Component {
     if (race.proficiencies.length > 0) {
       const proficiencies = race.proficiencies.map((proficiency, i) => {
         return (
-          <li key={i}>{proficiency}</li>
+          <p key={i}>{proficiency}</p>
         )
       });
       return proficiencies;
@@ -37,7 +37,7 @@ class RaceSnippet extends Component {
     if (race.features.length > 0) {
       const features = race.features.map((feature, i) => {
         return (
-          <li key={i}>{feature}</li>
+          <p key={i}>{feature}</p>
         )
       });
       return features;
@@ -61,34 +61,34 @@ class RaceSnippet extends Component {
     const selectedRace = RACE[this.props.race];
     return (
       <div className='race-snippet'>
-        <div>
-          <ul className='modifiers-list'>
-            <h4>Stat Modifiers:</h4>
-            {this.findModifiers(selectedRace)}
-          </ul>
+        <div className='modifiers-list'>
+          <h3>Stat Modifiers:</h3>
+          {this.findModifiers(selectedRace)}
         </div>
-        <span>
-          <ul className='proficiencies-list'>
-            <h4>Proficiencies:</h4>
-            {
-              selectedRace.proficiencies.length > 0 ? this.getProficiencies(selectedRace) 
-              : 'No proficiencies'
-            }
-          </ul>
+        <span className='proficiencies-list'>
+          <h3>Proficiencies:</h3>
+          {
+            selectedRace.proficiencies.length > 0 ? this.getProficiencies(selectedRace) 
+            : 'No proficiencies'
+          }
         </span>
-        <span>
-          <ul className='features-list'>
-            <h4>Features:</h4>
-            {
-              selectedRace.features.length > 0 ? this.getFeatures(selectedRace) 
-              : 'No features'
-            }
-          </ul>
+        <span className='features-list'>
+          <h3>Features:</h3>
+          {
+            selectedRace.features.length > 0 ? this.getFeatures(selectedRace) 
+            : 'No features'
+          }
         </span>
-        <p>Movement speed: {selectedRace.moveSpeed}ft.</p>
-        <p>Languages: {selectedRace.languages[0]}, {selectedRace.languages[1]}</p>
+        <div>
+          <h3>Movement Speed:</h3>
+          <p>{selectedRace.moveSpeed}ft.</p>
+        </div>
+        <div>
+          <h3>Languages:</h3>
+          <p>{selectedRace.languages[0]}, {selectedRace.languages[1]}</p>
+        </div>
         <div className='extra-choices'>
-          <h4>Extra Racial Choices: {selectedRace.extraChoicesName}</h4>
+          <h3>Extra Racial Choices: {selectedRace.extraChoicesName}</h3>
           <select>
             {this.getExtraChoices(selectedRace)}
           </select>
