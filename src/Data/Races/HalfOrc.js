@@ -1,5 +1,5 @@
 const HALFORC = {
-  name: 'half-orc',
+  name: 'halfOrc',
   strMod: 0,
   dexMod: 0,
   conMod: 0,
@@ -12,8 +12,8 @@ const HALFORC = {
   languages: ['common', 'orcish'],
   size: '',
   speed: 0,
-  extraChoicesName: '',
-  extraChoices: []
+  extraChoices1Name: '',
+  extraChoices1: {}
 }
 
 export default HALFORC;

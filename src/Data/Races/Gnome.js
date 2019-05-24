@@ -11,21 +11,21 @@ const GNOME = {
   features: ['gnome cunning'],
   languages: ['common', 'gnomish'],
   size: 'small',
-  extraChoicesName: 'Gnomish Subrace',
-  extraChoices: [
-    {
+  extraChoices1Name: 'Gnomish Subrace',
+  extraChoices1: {
+    'forest gnome': {
       name: 'forest gnome',
       dexMod: 1,
       features: ['speak with small beasts'],
       cantrips: ['minor illusion'],
     },
-    {
+    'rock gnome': {
       name: 'rock gnome',
       conMod: 1,
       features: ['artificer\'s lore'],
       proficiencies: ['tinker\'s tools']
     }
-  ]
+  }
 }
 
 export default GNOME;

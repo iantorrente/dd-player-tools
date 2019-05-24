@@ -12,19 +12,18 @@ const HUMAN = {
   languages: ['common'],
   size: 'medium',
   speed: 30,
-  extraChoicesName: 'Extra Language',
-  extraChoices: [
-    {
+  extraChoices1Name: 'Extra Language',
+  extraChoices1: {
+    dwarvish: {
       name: 'dwarvish'
     },
-    {
+    gnomish: {
       name: 'gnomish'
     },
-    {
+    draconic: {
       name: 'draconic'
     },
-    
-  ]
+  }
 }
 
 export default HUMAN;

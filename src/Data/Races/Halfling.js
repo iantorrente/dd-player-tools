@@ -11,19 +11,19 @@ const HALFLING = {
   features: ['lucky', 'brave', 'halfling nimbleness'],
   languages: ['common', 'halfling'],
   size: 'small',
-  extraChoicesName: 'Halfling Subrace',
-  extraChoices: [
-    {
+  extraChoices1Name: 'Halfling Subrace',
+  extraChoices1: {
+    'lightfoot': {
       name: 'lightfoot',
       chaMod: 1,
       features: ['naturally stealthy']
     },
-    {
+    'stout': {
       name: 'stout',
       conMod: 1,
       features: ['stout resilience']
     }
-  ]
+  }
 }
 
 export default HALFLING;

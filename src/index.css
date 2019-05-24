@@ -101,3 +101,13 @@ code {
 
 .features-list {
 }
+
+.extra-choice-snippet {
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+}
+
+.extra-choice-snippet h3 {
+  background-color: white;
+}

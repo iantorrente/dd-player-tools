@@ -12,8 +12,8 @@ const TIEFLING = {
   languages: ['common', 'infernal'],
   size: '',
   speed: 0,
-  extraChoicesName: '',
-  extraChoices: []
+  extraChoices1Name: '',
+  extraChoices1: {}
 }
 
 export default TIEFLING;

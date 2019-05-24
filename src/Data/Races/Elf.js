@@ -11,29 +11,29 @@ const ELF = {
   features: ['darkvision', 'fey ancestry', 'trance'],
   languages: ['common', 'elvish'],
   size: 'medium',
-  extraChoicesName: 'Elven Subrace',
-  extraChoices: [
-    {
+  extraChoices1Name: 'Elven Subrace',
+  extraChoices1: {
+    'high elf': {
       name: 'high elf',
       intMod: 1,
       proficiencies: ['longsword', 'shortsword', 'shortbow', 'longbow'],
       extraChoices: ['cantrip', 'language']
     },
-    {
+    'wood elf': {
       name: 'wood elf',
       wisMod: 1,
       proficiencies: ['longsword', 'shortsword', 'shortbow', 'longbow'],
       speed: 35,
       features: ['mask of the wild']
     },
-    {
+    'dark elf': {
       name: 'dark elf',
       chaMod: 1,
       features: ['superior darkvision', 'sunlight sensitivity'],
       spells: ['dancing lights', 'faerie fire', 'darkness'],
       proficiencies: ['rapier', 'shortsword', 'crossbow']
     },
-  ]
+  }
 }
 
 export default ELF;

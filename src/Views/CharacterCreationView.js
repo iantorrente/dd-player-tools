@@ -22,7 +22,7 @@ class CharacterCreationView extends Component {
       <div className='character-creation-view'>
         <h1>Character Creator</h1>
         <div className='step-section'>
-          <h2 className='cc-step'>Step 1) Choose a Race</h2>
+          <h2 className='cc-step'>Step 1: Choose a Race</h2>
           <select className='race-selection' onChange={this.handleRaceSelection} value={this.state.raceSelected}>
             <option value="dragonborn">Dragonborn</option>
             <option value="dwarf">Dwarf</option>
@@ -37,19 +37,19 @@ class CharacterCreationView extends Component {
           <RaceSnippet race={this.state.raceSelected} />
         </div>
         <div className='step-section'>
-          <h2 className='cc-step'>Step 2) Choose a Class</h2>
+          <h2 className='cc-step'>Step 2: Choose a Class</h2>
         </div>
         <div className='step-section'>
-          <h2 className='cc-step'>Step 3) Set a Starting Level</h2>
+          <h2 className='cc-step'>Step 3: Set a Starting Level</h2>
         </div>
         <div className='step-section'>
-          <h2 className='cc-step'>Step 4) Choose a Background</h2>
+          <h2 className='cc-step'>Step 4: Choose a Background</h2>
         </div>
         <div className='step-section'>
-          <h2 className='cc-step'>Step 5) Name Your Character</h2>
+          <h2 className='cc-step'>Step 5: Name Your Character</h2>
         </div>
         <div className='step-section'>
-          <h2 className='cc-step'>Step 6) Choose an Alignment</h2>
+          <h2 className='cc-step'>Step 6: Choose an Alignment</h2>
         </div>
       </div>
     );
