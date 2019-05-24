@@ -5,13 +5,12 @@ class StatsContainer extends Component {
   render() {
     return (
       <div className='stats-container'>
-        <h2>Stats Container</h2>
-        <StatContainer name="strength" STORE={this.props.STORE} />
-        <StatContainer name="dexterity" STORE={this.props.STORE} />
-        <StatContainer name="constitution" STORE={this.props.STORE} />
-        <StatContainer name="intelligence" STORE={this.props.STORE} />
-        <StatContainer name="wisdom" STORE={this.props.STORE} />
-        <StatContainer name="charisma" STORE={this.props.STORE} />
+        <StatContainer statName="strength" character={this.props.character} STATS={this.props.STATS} />
+        <StatContainer statName="dexterity" STATS={this.props.STATS} character={this.props.character} />
+        <StatContainer statName="constitution" character={this.props.character} STATS={this.props.STATS} />
+        <StatContainer statName="intelligence" character={this.props.character} STATS={this.props.STATS} />
+        <StatContainer statName="wisdom" character={this.props.character} STATS={this.props.STATS} />
+        <StatContainer statName="charisma" character={this.props.character} STATS={this.props.STATS} />
       </div>
     );
   }

@@ -1,4 +1,6 @@
 body {
+  background-color: rgb(143, 143, 143);
+  text-align: center;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -12,15 +14,32 @@ code {
     monospace;
 }
 
+.navigation-bar {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 3%;
+}
+
+.nav-btn {
+  background-color: white;
+  border: 1px solid black;
+  height: 35px;
+}
+
+.nav-btn:hover {
+  background-color: rgb(148, 148, 148);
+  cursor: pointer;
+}
 .stats-container {
   overflow: hidden;
   min-height: 200px;
 }
 
 .stat-container {
-  border: 1px solid black;
+  background-color: white;
+  border-radius: 5px;
   width: 85%;
-  min-height: 350px;
+  min-height: 275px;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 5%;
@@ -28,10 +47,54 @@ code {
 
 .stat-name {
   float: left;
-  width: 49%;
+  width: 35%;
 }
 
-.stat-abilities {
+.stat-skills {
   float: left;
-  width: 49%;
+  width: 65%;
+}
+
+.skill {
+  text-align: left;
+  margin: 5%;
+}
+
+.skill-input {
+  float: right;
+  width: 25%;
+}
+
+.cc-step {
+}
+
+.race-selection {
+  text-align-last: center;
+  font-size: 20px;
+  width: 80%;
+  height: 30px;
+}
+
+.race-snippet {
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2%;
+  padding: 2%;
+  width: 80%;
+}
+
+.modifiers-list {
+  text-align: left;
+  width: 50%;
+}
+
+.proficiencies-list {
+  text-align: left;
+  width: 50%;
+}
+
+.features-list {
+  text-align: left;
+  width: 50%;
 }

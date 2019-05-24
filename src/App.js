@@ -1,12 +1,13 @@
 import React from 'react';
-import StatsContainer from './Stats/StatsContainer.js';
-import STORE from './Store.js';
+import CharacterManagerView from './Views/CharacterManagerView.js';
+import CharacterCreationView from './Views/CharacterCreationView.js';
+import STATS from './Data/Stats.js';
 
 function App() {
   return (
     <main className='App'>
-      <h1>D&D Player Tools</h1>
-      <StatsContainer STORE={STORE} />
+      <CharacterCreationView STATS={STATS} />
+      {/* <CharacterManagerView STATS={STATS} /> */}
     </main>
   );
 }
