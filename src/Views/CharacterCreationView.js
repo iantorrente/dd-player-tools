@@ -10,8 +10,10 @@ class CharacterCreationView extends Component {
   constructor(props) {
     super(props);
     this.handleRaceSelection = this.handleRaceSelection.bind(this);
+    this.handleClassSelection = this.handleClassSelection.bind(this);
     this.state = {
-      raceSelected: 'dragonborn',
+      raceSelected: '',
+      classSelected: '',
       playerCharacter: {}
     }
   }
@@ -23,13 +25,20 @@ class CharacterCreationView extends Component {
     this.setState({ raceSelected: e.target.value });
   }
 
+  handleClassSelection(e) {
+    let pc = this.state.playerCharacter;
+    pc.class = e.target.value;
+    this.setState({ pc });
+    this.setState({ classSelected: e.target.value });
+  }
+
   render() {
-    console.log(this.state.playerCharacter);
+    console.log(this.state);
     return (
       <div className='character-creation-view'>
         <h1>Character Creator</h1>
         <RaceSection pc={this.state.playerCharacter} raceSelected={this.state.raceSelected} handleRaceSelection={this.handleRaceSelection} />
-        <ClassSection />
+        <ClassSection pc={this.state.playerCharacter} handleClassSelection={this.handleClassSelection} />
         <LevelSection />
         <BackgroundSection />
         <CharacterNameSection />
