@@ -4,7 +4,7 @@ class CharacterNameSection extends Component {
   render() {
     return(
       <div className='step-section'>
-        <h2 className='cc-step'>Step 5: Name Your Character</h2>
+        <h2 className='cc-step'>Step {this.props.step}: Name Your Character</h2>
       </div>
     )
   }

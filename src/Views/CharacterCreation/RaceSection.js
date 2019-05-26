@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import RaceSnippet from '../RaceSnippet/RaceSnippet.js';
-import Races from '../Data/Races.js';
+import RaceSnippet from '../../RaceSnippet/RaceSnippet.js';
+import Races from '../../Data/Races.js';
 
 class RaceSection extends Component {
   getRaceOptions() {
@@ -16,7 +16,7 @@ class RaceSection extends Component {
     const raceOptions = this.getRaceOptions();
     return(
       <div className='step-section'>
-        <h2 className='cc-step'>Step 1: Choose a Race</h2>
+        <h2 className='cc-step'>Step {this.props.step}: Choose a Race</h2>
         <select className='race-selection' onChange={this.props.handleRaceSelection} value={this.props.raceSelected}>
           <option>Races:</option>
           {raceOptions}

@@ -4,7 +4,7 @@ class LevelSection extends Component {
   render() {
     return(
       <div className='step-section'>
-        <h2 className='cc-step'>Step 3: Choose a Starting Level</h2>
+        <h2 className='cc-step'>Step {this.props.step}: Choose a Starting Level</h2>
       </div>
     )
   }

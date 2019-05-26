@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Classes from '../Data/Classes.js';
+import Classes from '../../Data/Classes.js'
 
 class ClassSection extends Component {
   getClassOptions() {
@@ -16,7 +16,7 @@ class ClassSection extends Component {
     const classOptions = this.getClassOptions();
     return(
       <div className='step-section'>
-        <h2 className='cc-step'>Step 2: Choose a Class</h2>
+        <h2 className='cc-step'>Step {this.props.step}: Choose a Class</h2>
         <select className='class-selection' onChange={this.props.handleClassSelection}>
         <option>Classes:</option>
           {classOptions}
