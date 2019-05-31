@@ -1,17 +1,17 @@
-const BARD = {
-  name: 'Bard',
+const PALADIN = {
+  name: 'Paladin',
   classFeatures: {
-    hitDice: '1d8 per Bard level',
-    hpAtLevelOne: '8 + constitution',
-    hpGainOnLevelUp: '5 + constitution',
+    hitDice: '1d10 per Paladin level',
+    hpAtLevelOne: '10 + constitution',
+    hpGainOnLevelUp: '6 + constitution',
     proficiencies: {
-      armor: ['light armor'],
-      weapons: ['simple weapons', 'hand crossbows', 'longswords', 'rapiers', 'shortswords'],
-      tools: ['three musical instruments of your choice'],
-      savingThrows: ['dexterity', 'charisma'],
+      armor: ['all armor', 'shields'],
+      weapons: ['simple weapons', 'martial weapons'],
+      tools: [],
+      savingThrows: ['wisdom', 'charisma'],
       skills: {
-        choiceCount: 3,
-        options: ['acrobatics', 'animal handling', 'arcana', 'athletics', 'deception', 'history', 'insight', 'intimidation', 'investigation', 'medicine', 'nature', 'perception', 'performance', 'persuasion', 'religion', 'sleight of hand', 'stealth', 'survival']
+        choiceCount: 2,
+        options: ['acrobatics', 'insight', 'intimidation', 'medicine','persuasion', 'religion']
       }
     }
   },
@@ -19,19 +19,24 @@ const BARD = {
     mandatory: {
       items: [
         {
-          name: 'leather armor',
+          name: 'chain mail',
           count: 1
         }, 
         {
-          name: 'dagger',
+          name: 'holy symbol',
           count: 1
         }
       ]
     },
     weapon: {
       options: [
-        'rapier', 
-        'longsword',
+        'martial weapon and a shield', 
+        'two martial weapons'
+      ]
+    },
+    'secondary weapon': {
+      options: [
+        'five javelins',
         'club',
         'dagger',
         'greatclub',
@@ -45,48 +50,35 @@ const BARD = {
       ]
     },
     pack: {
-      options: ['diplomat\'s pack', 'entertainer\'s pack']
+      options: ['priest\'s pack', 'explorer\'s pack']
     },
-    accessory: {
-      options: [
-        'lute',
-        'bagpipes',
-        'drum',
-        'dulcimer',
-        'flute',
-        'lute',
-        'lyre',
-        'horn',
-        'pan flute',
-        'shawm',
-        'viol'
-      ]
-    }
-  },
-  classOptions: {
-    'extra language': {
-      type: 'language',
-      amount: 3,
-      options: []
-    }
   },
   levelAdditions: [
     {
       level: 1,
       proficiencyBonus: 2,
-      features: ['spellcasting', 'bardic inspiration'],
+      features: ['divine sense', 'lay on hands'],
       classGimmick: [
         {
-          name: 'Bardic Inspiration',
-          type: 'buff',
-          amount: 1,
-          die: 'd6',
-          description: 'You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.',
+          name: 'Divine Sense',
+          type: 'action',
+          description: 'The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover.',
           descriptionPoints: [
-            'Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll or saving throw it makes.',
-            'The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails.',
-            'Once the Bardic Inspiration die is rolled, it is lost.',
-            'A creature can only have one Bardic Inspiration die at a time.'
+            'You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity (the vampire Count Strahd von Zarovich, for instance).',
+            'Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the hallow spell.',
+            'You can use this feature a number of times equal to 1 + your Charisma modifier.',
+            'When you finish a long rest, you regain all expended uses.'
+          ],
+        },
+        {
+          name: 'Lay on Hands',
+          type: 'spell',
+          description: 'Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you takea  long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5.',
+          descriptionPoints: [
+            'As an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool.',
+            'Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it.',
+            'You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one',
+            'This feature has no effect on undead and constructs.'
           ],
         }
       ],
@@ -95,4 +87,4 @@ const BARD = {
   ]
 }
 
-export default BARD;
+export default PALADIN;

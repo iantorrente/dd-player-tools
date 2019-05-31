@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import RaceSection from './CharacterCreation/RaceSection/RaceSection.js';
 import ClassSection from './CharacterCreation/ClassSection/ClassSection.js';
-import LevelSection from './CharacterCreation/LevelSection.js';
 import BackgroundSection from './CharacterCreation/BackgroundSection/BackgroundSection.js';
 import CharacterNameSection from './CharacterCreation/CharacterNameSection.js';
 import AlignmentSection from './CharacterCreation/AlignmentSection.js';

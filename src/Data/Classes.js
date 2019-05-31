@@ -4,6 +4,7 @@ import cleric from './Classes/Cleric.js';
 import druid from './Classes/Druid.js';
 import fighter from './Classes/Fighter.js';
 import monk from './Classes/Monk.js';
+import paladin from './Classes/Paladin.js';
 
 const CLASSES = {
   barbarian,
@@ -11,7 +12,8 @@ const CLASSES = {
   cleric,
   druid,
   fighter,
-  monk
+  monk,
+  paladin
 }
 
 export default CLASSES;

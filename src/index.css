@@ -170,3 +170,7 @@ code {
   cursor: pointer;
   background-color: rgb(224, 224, 224);
 }
+
+.list {
+  text-align: left;
+}

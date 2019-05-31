@@ -3,10 +3,6 @@ import CLASSES from '../../../../Data/Classes.js';
 import LANGUAGES from '../../../../Data/Languages.js';
 
 class ClassSnippet extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   getClassOptions(selectedClass, option) {
     const classOptions = selectedClass.classOptions;
     let returnOptions = '';
@@ -63,7 +59,7 @@ class ClassSnippet extends Component {
         <section key={i}>
           <h3>{classGimmicks[index].name}:</h3>
           <p>{classGimmicks[index].description}</p>
-          <ul>
+          <ul className='list'>
             {this.findGimmickDescriptions(classGimmicks[index])}
           </ul>
         </section>
