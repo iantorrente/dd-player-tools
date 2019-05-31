@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ExtraChoiceSnippet from './ExtraChoiceSnippet/ExtraChoiceSnippet.js';
-import RACE from '../Data/Races.js';
+import RACE from '../../../../Data/Races.js';
 
 class RaceSnippet extends Component {
   constructor(props) {
@@ -69,7 +69,8 @@ class RaceSnippet extends Component {
   render() {
     const selectedRace = RACE[this.props.race];
     return (
-      <div className='race-snippet'>
+      // change divs into sections inside of 'race-snippet'
+      <div className='snippet'>
         <div className='modifiers-list'>
           <h3>Stat Modifiers:</h3>
           {this.findModifiers(selectedRace)}
@@ -108,14 +109,14 @@ class RaceSnippet extends Component {
             {this.getExtraChoices(selectedRace, 1)}
           </select>
           {
-            selectedRace.name === 'halfElf' &&
+            selectedRace.name === 'Half Elf' &&
               <select>
                 <option>{selectedRace.extraChoices1Name}</option>
                 {this.getExtraChoices(selectedRace, 1)}
               </select>
           }
           {
-            ((this.state.extraChoices1) && (selectedRace.extraChoices1[this.state.extraChoices1.name]) && (selectedRace.name !== 'halfElf')) && 
+            ((this.state.extraChoices1) && (selectedRace.extraChoices1[this.state.extraChoices1.name]) && (selectedRace.name !== 'Half Elf')) && 
               <ExtraChoiceSnippet choice={this.state.extraChoices1}/>
           }
         </div>
@@ -128,6 +129,7 @@ class RaceSnippet extends Component {
             </select>
           </div>
         }
+        <button className='commit-btn'>Commit</button>
       </div>
     );
   }

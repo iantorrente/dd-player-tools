@@ -1,5 +1,5 @@
 const TIEFLING = {
-  name: 'tiefling',
+  name: 'Tiefling',
   strMod: 0,
   dexMod: 0,
   conMod: 0,

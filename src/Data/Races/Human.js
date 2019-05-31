@@ -1,5 +1,5 @@
 const HUMAN = {
-  name: 'human',
+  name: 'Human',
   strMod: 1,
   dexMod: 1,
   conMod: 1,

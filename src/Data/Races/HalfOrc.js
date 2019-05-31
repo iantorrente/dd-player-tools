@@ -1,5 +1,5 @@
 const HALFORC = {
-  name: 'halfOrc',
+  name: 'Half Orc',
   strMod: 0,
   dexMod: 0,
   conMod: 0,

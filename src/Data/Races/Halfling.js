@@ -1,5 +1,5 @@
 const HALFLING = {
-  name: 'halfling',
+  name: 'Halfling',
   strMod: 0,
   dexMod: 2,
   conMod: 0,

@@ -1,5 +1,5 @@
 const ELF = {
-  name: 'elf',
+  name: 'Elf',
   strMod: 0,
   dexMod: 2,
   conMod: 0,

@@ -1,5 +1,5 @@
 const DRAGONBORN = {
-  name: 'dragonborn',
+  name: 'Dragonborn',
   strMod: 2,
   dexMod: 0,
   conMod: 0,

@@ -3,10 +3,10 @@ import CharacterCreationView from './Views/CharacterCreationView.js';
 import Landing from './Views/Landing.js';
 import STATS from './Data/Stats.js';
 
-function App(newView) {
+function App() {
   return (
     <main className='App'>
-      <Landing />
+      {/* <Landing /> */}
       <CharacterCreationView STATS={STATS} />
     </main>
   );

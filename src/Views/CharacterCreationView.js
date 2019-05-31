@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import RaceSection from './CharacterCreation/RaceSection.js';
-import ClassSection from './CharacterCreation/ClassSection.js';
+import RaceSection from './CharacterCreation/RaceSection/RaceSection.js';
+import ClassSection from './CharacterCreation/ClassSection/ClassSection.js';
 import LevelSection from './CharacterCreation/LevelSection.js';
-import BackgroundSection from './CharacterCreation/BackgroundSection.js';
+import BackgroundSection from './CharacterCreation/BackgroundSection/BackgroundSection.js';
 import CharacterNameSection from './CharacterCreation/CharacterNameSection.js';
 import AlignmentSection from './CharacterCreation/AlignmentSection.js';
 
@@ -11,9 +11,11 @@ class CharacterCreationView extends Component {
     super(props);
     this.handleRaceSelection = this.handleRaceSelection.bind(this);
     this.handleClassSelection = this.handleClassSelection.bind(this);
+    this.handleBackgroundSelection = this.handleBackgroundSelection.bind(this);
     this.state = {
       raceSelected: '',
       classSelected: '',
+      backgroundSelected: '',
       playerCharacter: {}
     }
   }
@@ -32,8 +34,14 @@ class CharacterCreationView extends Component {
     this.setState({ classSelected: e.target.value });
   }
 
+  handleBackgroundSelection(e) {
+    let pc = this.state.playerCharacter;
+    pc.background = e.target.value;
+    this.setState({ pc });
+    this.setState({ backgroundSelected: e.target.value });
+  }
+
   render() {
-    console.log(this.state);
     return (
       <div className='character-creation-view'>
         <h1>Character Creator</h1>
@@ -43,13 +51,19 @@ class CharacterCreationView extends Component {
           raceSelected={this.state.raceSelected} handleRaceSelection={this.handleRaceSelection} 
         />
         <ClassSection
-        step={2}
-          pc={this.state.playerCharacter} 
+          step={2}
+          pc={this.state.playerCharacter}
+          classSelected={this.state.classSelected} 
           handleClassSelection={this.handleClassSelection} 
         />
-        <BackgroundSection step={3} />
-        <CharacterNameSection step={4} />
-        <AlignmentSection step={5} />
+        <BackgroundSection 
+          step={3} 
+          pc={this.state.playerCharacter}
+          backgroundSelected={this.state.backgroundSelected}
+          handleBackgroundSelection={this.handleBackgroundSelection}
+        />
+        <AlignmentSection step={4} />
+        <CharacterNameSection step={5} />
       </div>
     );
   }

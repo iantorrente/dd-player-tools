@@ -1,5 +1,5 @@
 const DWARF = {
-  name: 'dwarf',
+  name: 'Dwarf',
   strMod: 0,
   dexMod: 0,
   conMod: 2,

@@ -1,5 +1,5 @@
 const GNOME = {
-  name: 'gnome',
+  name: 'Gnome',
   strMod: 0,
   dexMod: 0,
   conMod: 0,

@@ -1,5 +1,5 @@
 const HALFELF = {
-  name: 'halfElf',
+  name: 'Half Elf',
   strMod: 0,
   dexMod: 0,
   conMod: 0,
