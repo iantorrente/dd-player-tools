@@ -5,6 +5,10 @@ import druid from './Classes/Druid.js';
 import fighter from './Classes/Fighter.js';
 import monk from './Classes/Monk.js';
 import paladin from './Classes/Paladin.js';
+import ranger from './Classes/Ranger.js';
+import rogue from './Classes/Rogue.js';
+import sorceror from './Classes/Sorcerer.js';
+import warlock from './Classes/Warlock.js';
 
 const CLASSES = {
   barbarian,
@@ -13,7 +17,11 @@ const CLASSES = {
   druid,
   fighter,
   monk,
-  paladin
+  paladin,
+  ranger,
+  rogue,
+  sorceror,
+  warlock
 }
 
 export default CLASSES;

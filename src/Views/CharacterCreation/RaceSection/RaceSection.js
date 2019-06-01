@@ -23,7 +23,7 @@ class RaceSection extends Component {
           {raceOptions}
         </select>
         {
-          (this.props.raceSelected !== '' && this.props.raceSelected !== 'Races:') &&
+          (Races[this.props.raceSelected] !== undefined) &&
             <RaceSnippet pc={this.props.pc} race={this.props.raceSelected} />
         }
       </div>

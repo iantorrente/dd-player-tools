@@ -31,6 +31,7 @@ class ClassSnippet extends Component {
             <b>{option}</b>
             <br />
             <select>{this.getClassOptions(selectedClass, option)}</select>
+            <br />
           </span>
         )
       })
@@ -197,7 +198,7 @@ class ClassSnippet extends Component {
         </section>
 
         <section className='skills-list'>
-          <h3>Skills:</h3>
+          <h3>Skills (choose {selectedClass.classFeatures.proficiencies.skills.choiceCount}):</h3>
           {this.findSkills(selectedClass)}
         </section>
 

@@ -24,7 +24,7 @@ class ClassSection extends Component {
           {classOptions}
         </select>
         {
-          (this.props.classSelected !== '' && this.props.classSelected !== 'Classes:') &&
+          (Classes[this.props.classSelected] !== undefined) &&
           <ClassSnippet pc={this.props.pc} classSelected={this.props.classSelected} />
         }
       </div>
