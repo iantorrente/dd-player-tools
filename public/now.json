@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "DnD-character-creator",
+  "alias": "dnd-character-creator",
+  "routes": [
+      {
+        "src": "^/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": ".*",
+        "dest": "/index.html"
+      }
+  ]
+}

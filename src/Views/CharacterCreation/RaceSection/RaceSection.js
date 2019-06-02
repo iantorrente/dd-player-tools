@@ -14,7 +14,6 @@ class RaceSection extends Component {
 
   render() {
     const raceOptions = this.getRaceOptions();
-    console.log(`raceSelected: ${this.props.raceSelected}`)
     return(
       <div className='step-section'>
         <h2 className='cc-step'>Step {this.props.step}: Choose a Race</h2>

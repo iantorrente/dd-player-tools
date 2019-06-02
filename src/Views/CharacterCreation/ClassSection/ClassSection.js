@@ -13,7 +13,6 @@ class ClassSection extends Component {
   }
 
   render() {
-    console.log(this.props.classSelected);
     const classOptions = this.getClassOptions();
     
     return(

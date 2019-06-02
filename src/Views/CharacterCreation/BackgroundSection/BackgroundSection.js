@@ -15,7 +15,6 @@ class BackgroundSection extends Component {
 
   render() {
     const selectedBackground = this.props.backgroundSelected;
-    console.log(Backgrounds[selectedBackground]);
     return(
       <div className='step-section'>
         <h2 className='cc-step'>Step {this.props.step}: Choose a Background</h2>

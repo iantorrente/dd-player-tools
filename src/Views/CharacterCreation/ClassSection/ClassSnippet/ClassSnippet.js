@@ -160,7 +160,6 @@ class ClassSnippet extends Component {
   }
 
   findFeatures(selectedClass) {
-    console.log(selectedClass);
     const classFeatures = selectedClass.classFeatures;
     const featureDictionary = {
       hitDice: 'Hit Dice',
