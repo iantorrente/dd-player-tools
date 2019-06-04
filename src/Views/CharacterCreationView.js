@@ -13,10 +13,12 @@ class CharacterCreationView extends Component {
     this.handleRaceSelection = this.handleRaceSelection.bind(this);
     this.handleClassSelection = this.handleClassSelection.bind(this);
     this.handleBackgroundSelection = this.handleBackgroundSelection.bind(this);
+    this.handleAlignmentSelection = this.handleAlignmentSelection.bind(this);
     this.state = {
       raceSelected: 'dragonborn',
       classSelected: 'barbarian',
       backgroundSelected: 'acolyte',
+      alignmentSelected: 'lawful good',
       playerCharacter: {}
     }
   }
@@ -40,6 +42,13 @@ class CharacterCreationView extends Component {
     pc.background = e.target.value;
     this.setState({ pc });
     this.setState({ backgroundSelected: e.target.value });
+  }
+
+  handleAlignmentSelection(e) {
+    let pc = this.state.playerCharacter;
+    pc.alignment = e.target.value;
+    this.setState({ pc });
+    this.setState({ alignmentSelected: e.target.value });
   }
 
   render() {
@@ -79,7 +88,12 @@ class CharacterCreationView extends Component {
         <Route 
           path='/character-creation/alignment'
           render={(props) => 
-            <AlignmentSection step={4} />}
+            <AlignmentSection 
+              step={4} 
+              pc={this.state.playerCharacter}
+              alignmentSelected={this.state.alignmentSelected}
+              handleAlignmentSelection={this.handleAlignmentSelection}
+            />}
         />
       </div>
     );
