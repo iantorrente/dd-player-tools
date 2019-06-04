@@ -18,7 +18,7 @@ class ClassSection extends Component {
     return(
       <div className='step-section'>
         <h2 className='cc-step'>Step {this.props.step}: Choose a Class</h2>
-        <select className='class-selection' onChange={this.props.handleClassSelection}>
+        <select className='class-selection' onChange={this.props.handleClassSelection} value={this.props.classSelected}>
         <option>Classes:</option>
           {classOptions}
         </select>

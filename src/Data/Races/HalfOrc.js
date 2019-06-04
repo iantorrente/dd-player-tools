@@ -1,19 +1,17 @@
 const HALFORC = {
   name: 'Half Orc',
-  strMod: 0,
+  strMod: 2,
   dexMod: 0,
-  conMod: 0,
+  conMod: 1,
   intMod: 0,
   wisMod: 0,
   chaMod: 0,
-  moveSpeed: 0,
+  moveSpeed: 30,
   proficiencies: [],
-  features: [],
+  features: ['darkvision', 'menacing', 'relentless endurance', 'savage attacks'],
   languages: ['common', 'orcish'],
-  size: '',
-  speed: 0,
-  extraChoices1Name: '',
-  extraChoices1: {}
+  size: 'medium',
+  raceChoices: {}
 }
 
 export default HALFORC;

@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Navigation extends Component {
   render() {
     return(
-      <div className="navigation-bar">
-        <button className="nav-btn" onClick={() => this.props.handleViewChange('stats')}>Stats</button>
-        <button className="nav-btn" onClick={() => this.props.handleViewChange('equipment')}>Equipment</button>
-        <button className="nav-btn" onClick={() => this.props.handleViewChange('spells')}>Spells</button>
-        <button className="nav-btn" onClick={() => this.props.handleViewChange('journal')}>Journal</button>
+      <div className='nav-bar'>
+        <Link className='nav-link' to='/character-creation/race'>
+          <button className="nav-btn">Race</button>
+        </Link>
+        <Link className='nav-link' to='/character-creation/class'>
+          <button className="nav-btn">Class</button>
+        </Link>
+        <Link className='nav-link' to='/character-creation/background'>
+          <button className="nav-btn">Background</button>
+        </Link>
+        <Link className='nav-link' to='/character-creation/alignment'>
+          <button className="nav-btn" >Alignment</button>
+        </Link>
       </div>
     )
   }

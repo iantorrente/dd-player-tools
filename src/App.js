@@ -1,13 +1,15 @@
 import React from 'react';
 import CharacterCreationView from './Views/CharacterCreationView.js';
 import Landing from './Views/Landing.js';
-import STATS from './Data/Stats.js';
+import { Route } from 'react-router-dom';
 
 function App() {
   return (
     <main className='App'>
-      {/* <Landing /> */}
-      <CharacterCreationView STATS={STATS} />
+      <Route exact path='/' component={Landing} />
+      <Route path='/character-creation' component={CharacterCreationView} />
+      {/* <Landing />
+      <CharacterCreationView /> */}
     </main>
   );
 }

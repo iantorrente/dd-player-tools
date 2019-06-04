@@ -66,6 +66,48 @@ code {
 }
 */
 
+
+.landing-section div {
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+  width: 75%;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-btn {
+  background-color: white;
+  border: 1px solid white;
+  width: 24%;
+}
+
+.nav-btn:focus {
+  background-color: rgb(196, 196, 196);
+}
+
+.nav-link:nth-child(even) {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.landing-section h3 {
+  background-color: rgb(63, 63, 63);
+  color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.landing-header {
+  background-color: rgb(63, 63, 63);
+  color: rgb(255, 255, 255);
+  margin: 4%;
+  padding: 2%;
+}
+
 .character-creation-btn {
   background-color: white;
   border: 1px solid white;
@@ -86,12 +128,12 @@ code {
 }
 
 .landing-section {
-  background-color: rgb(145, 145, 145);
+  background-color: rgb(226, 226, 226);
   padding: 4%;
 }
 
 .landing-section:nth-child(even) {
-  background-color: rgb(170, 170, 170);
+  background-color: rgb(194, 194, 194);
 }
 
 .step-section {
@@ -124,12 +166,6 @@ code {
 
 .modifiers-list {
   text-align: center;
-}
-
-.proficiencies-list {
-}
-
-.features-list {
 }
 
 .extra-choice-snippet {

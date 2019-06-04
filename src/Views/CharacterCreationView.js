@@ -4,6 +4,8 @@ import ClassSection from './CharacterCreation/ClassSection/ClassSection.js';
 import BackgroundSection from './CharacterCreation/BackgroundSection/BackgroundSection.js';
 import CharacterNameSection from './CharacterCreation/CharacterNameSection.js';
 import AlignmentSection from './CharacterCreation/AlignmentSection.js';
+import Navigation from '../Navigation/Navigation.js';
+import { Route } from 'react-router-dom';
 
 class CharacterCreationView extends Component {
   constructor(props) {
@@ -12,9 +14,9 @@ class CharacterCreationView extends Component {
     this.handleClassSelection = this.handleClassSelection.bind(this);
     this.handleBackgroundSelection = this.handleBackgroundSelection.bind(this);
     this.state = {
-      raceSelected: '',
-      classSelected: '',
-      backgroundSelected: '',
+      raceSelected: 'dragonborn',
+      classSelected: 'barbarian',
+      backgroundSelected: 'acolyte',
       playerCharacter: {}
     }
   }
@@ -44,25 +46,41 @@ class CharacterCreationView extends Component {
     return (
       <div className='character-creation-view'>
         <h1>Character Creator</h1>
-        <RaceSection
-          step={1}
-          pc={this.state.playerCharacter} 
-          raceSelected={this.state.raceSelected} handleRaceSelection={this.handleRaceSelection} 
+        <Navigation />
+        <Route 
+          path='/character-creation/race'
+          render={(props) => 
+            <RaceSection
+              step={1}
+              pc={this.state.playerCharacter} 
+              raceSelected={this.state.raceSelected} handleRaceSelection={this.handleRaceSelection} 
+            />}
         />
-        <ClassSection
-          step={2}
-          pc={this.state.playerCharacter}
-          classSelected={this.state.classSelected} 
-          handleClassSelection={this.handleClassSelection} 
+        <Route 
+          path='/character-creation/class'
+          render={(props) => 
+            <ClassSection
+              step={2}
+              pc={this.state.playerCharacter}
+              classSelected={this.state.classSelected} 
+              handleClassSelection={this.handleClassSelection} 
+            />}
         />
-        <BackgroundSection 
-          step={3} 
-          pc={this.state.playerCharacter}
-          backgroundSelected={this.state.backgroundSelected}
-          handleBackgroundSelection={this.handleBackgroundSelection}
+        <Route 
+          path='/character-creation/background'
+          render={(props) => 
+            <BackgroundSection 
+              step={3} 
+              pc={this.state.playerCharacter}
+              backgroundSelected={this.state.backgroundSelected}
+              handleBackgroundSelection={this.handleBackgroundSelection}
+            />}
         />
-        <AlignmentSection step={4} />
-        <CharacterNameSection step={5} />
+        <Route 
+          path='/character-creation/alignment'
+          render={(props) => 
+            <AlignmentSection step={4} />}
+        />
       </div>
     );
   }

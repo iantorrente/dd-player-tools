@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ExtraChoiceSnippet from './ExtraChoiceSnippet/ExtraChoiceSnippet.js';
-import RACE from '../../../../Data/Races.js';
+import Race from '../../../../Data/Races.js';
+import Languages from '../../../../Data/Languages.js';
 
 class RaceSnippet extends Component {
   constructor(props) {
@@ -44,22 +45,48 @@ class RaceSnippet extends Component {
     }
   }
 
-  getExtraChoices(race, choiceNum) {
-    const choiceVersion = `extraChoices${choiceNum}`;
-    if (Object.keys(race[choiceVersion]).length > 0) {
-      const extraChoices = Object.keys(race[choiceVersion]).map((extraChoice, i) => {
-        return (
-          <option key={i}>
-            {extraChoice}
-          </option>
-        )
-      });
-      return extraChoices;
+  getLanguageOptions() {
+
+  }
+
+  getExtraOptions(options) {
+    const extraOptions = Object.keys(options).map((option, i) => {
+      return (
+        <option key={i}>
+          {options[option].name}
+        </option>
+      )
+    });
+    return extraOptions;
+  }
+
+  findExtraChoices(race) {
+    const raceChoices = race.raceChoices;
+    if (Object.keys(raceChoices).length < 1) {
+      return (
+        <div>
+          <h3>Extra Racial Choice:</h3>
+          <p>No extra racial choices</p>
+        </div>
+      )
     }
+
+    const choices = Object.keys(raceChoices).map((choice, i) => {
+      return (
+        <div key={i}>
+          <h3>Extra Racial Choice: {raceChoices[choice].name}</h3>
+          <select onChange={this.props.handleExtraChoice}>
+            <option>{raceChoices[choice].name}:</option>
+            {this.getExtraOptions(raceChoices[choice].options)}
+          </select>
+        </div>
+      )
+    });
+    return choices;
   }
 
   handleExtraChoice(e) {
-    const race = RACE[this.props.race]
+    const race = Race[this.props.race]
     const choiceVersion = race[e.target.id];
     const extraChoice = choiceVersion[e.target.value];
     const stateObj = { [e.target.id]: extraChoice };
@@ -67,7 +94,7 @@ class RaceSnippet extends Component {
   }
 
   render() {
-    const selectedRace = RACE[this.props.race];
+    const selectedRace = Race[this.props.race];
     return (
       // change divs into sections inside of 'race-snippet'
       <div className='snippet'>
@@ -94,7 +121,7 @@ class RaceSnippet extends Component {
 
         <div>
           <h3>Movement Speed:</h3>
-          <p>{selectedRace.moveSpeed}ft.</p>
+          <p>{selectedRace.moveSpeed} ft.</p>
         </div>
 
         <div>
@@ -103,32 +130,8 @@ class RaceSnippet extends Component {
         </div>
 
         <div className='extra-choices'>
-          <h3>Extra Racial Choices: {selectedRace.extraChoices1Name}</h3>
-          <select id='extraChoices1' onChange={this.handleExtraChoice} >
-            <option>{selectedRace.extraChoices1Name}</option>
-            {this.getExtraChoices(selectedRace, 1)}
-          </select>
-          {
-            selectedRace.name === 'Half Elf' &&
-              <select>
-                <option>{selectedRace.extraChoices1Name}</option>
-                {this.getExtraChoices(selectedRace, 1)}
-              </select>
-          }
-          {
-            ((this.state.extraChoices1) && (selectedRace.extraChoices1[this.state.extraChoices1.name]) && (selectedRace.name !== 'Half Elf')) && 
-              <ExtraChoiceSnippet choice={this.state.extraChoices1}/>
-          }
+          {this.findExtraChoices(selectedRace)}
         </div>
-        {selectedRace.extraChoices2 && 
-          <div className='extra-choices'>
-            <h3>Extra Racial Choices 2: {selectedRace.extraChoices2Name}</h3>
-            <select id='extraChoices2' onChange={this.handleExtraChoice} >
-              <option>{selectedRace.extraChoices2Name}</option>
-              {this.getExtraChoices(selectedRace, 2)}
-            </select>
-          </div>
-        }
         <button className='commit-btn'>Commit</button>
       </div>
     );

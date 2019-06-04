@@ -3,17 +3,15 @@ const TIEFLING = {
   strMod: 0,
   dexMod: 0,
   conMod: 0,
-  intMod: 0,
+  intMod: 1,
   wisMod: 0,
-  chaMod: 0,
-  moveSpeed: 0,
+  chaMod: 2,
+  moveSpeed: 30,
   proficiencies: [],
-  features: [],
+  features: ['darkvision', 'hellish resistance', 'infernal legacy'],
   languages: ['common', 'infernal'],
-  size: '',
-  speed: 0,
-  extraChoices1Name: '',
-  extraChoices1: {}
+  size: 'medium',
+  raceChoices: {}
 }
 
 export default TIEFLING;

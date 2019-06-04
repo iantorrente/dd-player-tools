@@ -6,23 +6,16 @@ const HUMAN = {
   intMod: 1,
   wisMod: 1,
   chaMod: 1,
-  moveSpeed: 0,
+  moveSpeed: 30,
   proficiencies: [],
   features: [],
-  languages: ['common'],
+  languages: ['common', 'extra language of choice'],
   size: 'medium',
-  speed: 30,
-  extraChoices1Name: 'Extra Language',
-  extraChoices1: {
-    dwarvish: {
-      name: 'dwarvish'
-    },
-    gnomish: {
-      name: 'gnomish'
-    },
-    draconic: {
-      name: 'draconic'
-    },
+  raceChoices: {
+    'extra language': {
+      name: 'Extra Language',
+      options: {}
+    }
   }
 }
 
