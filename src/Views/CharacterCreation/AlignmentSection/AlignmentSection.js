@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Alignments from '../../Data/Alignments.js';
-import AlignmentSnippet from './AlignmentSection/AlignmentSnippet.js';
+import Alignments from '../../../Data/Alignments.js';
+import AlignmentSnippet from './AlignmentSnippet/AlignmentSnippet.js';
+import Explanation from '../Explanation.js';
 
 class AlignmentSection extends Component {
   findAlignments() {
@@ -17,9 +18,15 @@ class AlignmentSection extends Component {
       <div className='step-section'>
         <h2 className='cc-step'>Step {this.props.step}: Choose Your Alignment</h2>
         <select className='alignment-selection' onChange={this.props.handleAlignmentSelection} value={this.props.alignmentSelected}>
+          <option>Alignments:</option>
           {this.findAlignments()}
         </select>
-        <AlignmentSnippet alignmentSelected={this.props.alignmentSelected} />
+        {
+          (Alignments[this.props.alignmentSelected] !== undefined) ?
+            <AlignmentSnippet alignmentSelected={this.props.alignmentSelected} />
+          :
+            <Explanation toExplain='alignment' />
+        }
       </div>
     )
   }

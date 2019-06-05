@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Classes from '../../../Data/Classes.js'
 import ClassSnippet from './ClassSnippet/ClassSnippet.js';
+import Explanation from '../Explanation.js';
 
 class ClassSection extends Component {
   getClassOptions() {
@@ -23,8 +24,10 @@ class ClassSection extends Component {
           {classOptions}
         </select>
         {
-          (Classes[this.props.classSelected] !== undefined) &&
-          <ClassSnippet pc={this.props.pc} classSelected={this.props.classSelected} />
+          (Classes[this.props.classSelected] !== undefined) ?
+            <ClassSnippet pc={this.props.pc} classSelected={this.props.classSelected} />
+          :
+            <Explanation toExplain='class' />
         }
       </div>
     )

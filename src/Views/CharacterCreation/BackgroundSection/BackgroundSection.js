@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Backgrounds from '../../../Data/Backgrounds.js';
 import BackgroundSnippet from './BackgroundSnippet/BackgroundSnippet.js';
+import Explanation from '../Explanation.js';
 
 class BackgroundSection extends Component {
   getBackgroundOptions() {
@@ -23,8 +24,10 @@ class BackgroundSection extends Component {
           {this.getBackgroundOptions()}
         </select>
         {
-          (Backgrounds[selectedBackground] !== undefined) &&
+          (Backgrounds[selectedBackground] !== undefined) ?
             <BackgroundSnippet backgroundSelected={selectedBackground} />
+          :
+            <Explanation toExplain='background' />
         }
       </div>
     )

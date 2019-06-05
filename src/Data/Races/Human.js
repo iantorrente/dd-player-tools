@@ -14,7 +14,9 @@ const HUMAN = {
   raceChoices: {
     'extra language': {
       name: 'Extra Language',
-      options: {}
+      options: {
+        language: true
+      }
     }
   }
 }

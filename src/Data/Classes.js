@@ -9,6 +9,7 @@ import ranger from './Classes/Ranger.js';
 import rogue from './Classes/Rogue.js';
 import sorceror from './Classes/Sorcerer.js';
 import warlock from './Classes/Warlock.js';
+import wizard from './Classes/Wizard.js';
 
 const CLASSES = {
   barbarian,
@@ -21,7 +22,8 @@ const CLASSES = {
   ranger,
   rogue,
   sorceror,
-  warlock
+  warlock,
+  wizard
 }
 
 export default CLASSES;

@@ -46,10 +46,21 @@ class RaceSnippet extends Component {
   }
 
   getLanguageOptions() {
-
+    const languageOptions = Object.keys(Languages).map((language, i) => {
+      return (
+        <option key={i} value={language}>{language}</option>
+      )
+    });
+    return languageOptions;
   }
 
   getExtraOptions(options) {
+    if (options.language) {
+      return (
+        this.getLanguageOptions()
+      )
+    }
+    
     const extraOptions = Object.keys(options).map((option, i) => {
       return (
         <option key={i}>

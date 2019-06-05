@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import RaceSection from './CharacterCreation/RaceSection/RaceSection.js';
 import ClassSection from './CharacterCreation/ClassSection/ClassSection.js';
 import BackgroundSection from './CharacterCreation/BackgroundSection/BackgroundSection.js';
-import CharacterNameSection from './CharacterCreation/CharacterNameSection.js';
-import AlignmentSection from './CharacterCreation/AlignmentSection.js';
+import AlignmentSection from './CharacterCreation/AlignmentSection/AlignmentSection.js';
 import Navigation from '../Navigation/Navigation.js';
 import { Route } from 'react-router-dom';
 
@@ -15,10 +14,10 @@ class CharacterCreationView extends Component {
     this.handleBackgroundSelection = this.handleBackgroundSelection.bind(this);
     this.handleAlignmentSelection = this.handleAlignmentSelection.bind(this);
     this.state = {
-      raceSelected: 'dragonborn',
-      classSelected: 'barbarian',
-      backgroundSelected: 'acolyte',
-      alignmentSelected: 'lawful good',
+      raceSelected: '',
+      classSelected: '',
+      backgroundSelected: '',
+      alignmentSelected: '',
       playerCharacter: {}
     }
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RaceSnippet from './RaceSnippet/RaceSnippet.js';
+import Explanation from '../Explanation.js';
 import Races from '../../../Data/Races.js';
 
 class RaceSection extends Component {
@@ -22,8 +23,10 @@ class RaceSection extends Component {
           {raceOptions}
         </select>
         {
-          (Races[this.props.raceSelected] !== undefined) &&
+          (Races[this.props.raceSelected] !== undefined) ?
             <RaceSnippet pc={this.props.pc} race={this.props.raceSelected} />
+            :
+            <Explanation toExplain='race'/>
         }
       </div>
     )

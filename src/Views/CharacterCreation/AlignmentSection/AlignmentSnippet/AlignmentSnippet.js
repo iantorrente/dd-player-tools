@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Alignments from '../../../Data/Alignments.js';
+import Alignments from '../../../../Data/Alignments.js';
 
 class AlignmentSnippet extends Component {
   findAlignmentExamples(alignment) {
