@@ -88,7 +88,7 @@ class Explanation extends Component {
       return (
         <section>
           <p>
-            Your character's alignment is their own personal compass. Are they a chaotic good Rogue who steals from the rich and gives to the poor, or a lawful good Paladin who upholds the law and enacts justice no matter the cost?
+            Your character's alignment is their own personal moral compass. Are they a chaotic good Rogue who steals from the rich and gives to the poor, or a lawful good Paladin who upholds the law and enacts justice no matter the cost?
           </p>
           <p>
             The alignment serves as an underlying trait that helps to play your character. By no means is it static: a 1st level Paladin who sets off on a quest might not be the same man (or woman) they were when they become a 5th or 17th level Paladin. Keep your character's alignment in mind whenever there are roleplay or character building moments and ask yourself: is this a turning point for my character or will they continue to abide by their own moral compass.

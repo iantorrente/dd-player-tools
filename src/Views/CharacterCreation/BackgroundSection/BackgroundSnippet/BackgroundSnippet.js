@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import BACKGROUNDS from '../../../../Data/Backgrounds.js';
 import Languages from '../../../../Data/Languages.js';
 
@@ -62,6 +63,9 @@ class BackgroundSnippet extends Component {
           <h3>Equipment:</h3>
           {this.findEquipment(background)}
         </section>
+        <Link to='/character-creation/alignment'>
+          <button className='commit-btn'>Commit</button>
+        </Link>
       </div>
     )
   }

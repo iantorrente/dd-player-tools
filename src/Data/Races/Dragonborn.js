@@ -1,11 +1,9 @@
 const DRAGONBORN = {
   name: 'Dragonborn',
-  strMod: 2,
-  dexMod: 0,
-  conMod: 0,
-  intMod: 0,
-  wisMod: 0,
-  chaMod: 1,
+  statModifiers: {
+    strength: 2,
+    charisma: 1,
+  },
   moveSpeed: 30,
   proficiencies: [],
   features: [],

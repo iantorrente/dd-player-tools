@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import CLASSES from '../../../../Data/Classes.js';
 import LANGUAGES from '../../../../Data/Languages.js';
 
@@ -207,7 +208,9 @@ class ClassSnippet extends Component {
           <h4>Equipment Choices:</h4>
           {this.getEquipment(selectedClass)}
         </section>
-        <button className='commit-btn'>Commit</button>
+        <Link to='/character-creation/background'>
+          <button className='commit-btn'>Commit</button>
+        </Link>
       </div>
     );
   }

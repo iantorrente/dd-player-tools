@@ -1,11 +1,8 @@
 const HALFLING = {
   name: 'Halfling',
-  strMod: 0,
-  dexMod: 2,
-  conMod: 0,
-  intMod: 0,
-  wisMod: 0,
-  chaMod: 0,
+  statModifiers: {
+    dexterity: 2,
+  },
   moveSpeed: 25,
   proficiencies: [],
   features: ['lucky', 'brave', 'halfling nimbleness'],

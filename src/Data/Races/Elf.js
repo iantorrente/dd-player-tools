@@ -1,11 +1,8 @@
 const ELF = {
   name: 'Elf',
-  strMod: 0,
-  dexMod: 2,
-  conMod: 0,
-  intMod: 0,
-  wisMod: 0,
-  chaMod: 0,
+  statModifiers: {
+    dexterity: 2,
+  },
   moveSpeed: 30,
   proficiencies: ['perception'],
   features: ['darkvision', 'fey ancestry', 'trance'],

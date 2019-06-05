@@ -1,11 +1,9 @@
 const TIEFLING = {
   name: 'Tiefling',
-  strMod: 0,
-  dexMod: 0,
-  conMod: 0,
-  intMod: 1,
-  wisMod: 0,
-  chaMod: 2,
+  statModifiers: {
+    intelligence: 1,
+    charisma: 2,
+  },
   moveSpeed: 30,
   proficiencies: [],
   features: ['darkvision', 'hellish resistance', 'infernal legacy'],

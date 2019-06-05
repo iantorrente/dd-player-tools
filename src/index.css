@@ -21,6 +21,19 @@ code {
   width: 75%;
 }
 
+.character-preview-btn {
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-bottom: 4%;
+  width: 150px;
+  height: 35px;
+}
+
+.character-preview-btn:focus {
+  background-color: rgb(196, 196, 196);
+}
+
 .nav-link {
   text-decoration: none;
   color: black;
@@ -29,6 +42,7 @@ code {
 .nav-btn {
   background-color: white;
   border: 1px solid white;
+  cursor: pointer;
   font-size: 14px;
   width: 24%;
   height: 25px;
@@ -165,4 +179,50 @@ code {
 
 .list {
   text-align: left;
+}
+
+.stat-block {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.stat-row {
+  width: 100%;
+}
+
+.stat-item {
+  background-color: white;
+  border-radius: 13px;
+  float: left;
+  margin: 1%;
+  width: 31%;
+}
+
+.stat-item-details p {
+  border: 1px solid black;
+  border-radius: 50% 50% 50% 50%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50px;
+  height: 50px;
+}
+
+.stat-item-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 50px;
+  padding: 4px;
+}
+
+.stat-increment-btn {
+  background-color: rgb(214, 214, 214);
+  border: 1px solid black;
+  height: 30px;
+}
+
+.stat-item-number {
+  align-items: center;
 }

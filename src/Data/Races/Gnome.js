@@ -1,11 +1,8 @@
 const GNOME = {
   name: 'Gnome',
-  strMod: 0,
-  dexMod: 0,
-  conMod: 0,
-  intMod: 2,
-  wisMod: 0,
-  chaMod: 0,
+  statModifiers: {
+    intelligence: 2,
+  },
   moveSpeed: 25,
   proficiencies: [],
   features: ['gnome cunning'],

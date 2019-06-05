@@ -38,15 +38,27 @@ class Landing extends Component {
         <section className='landing-section'>
           <h3>How Do I Use It?</h3>
           <div>
+            <p>
+              While you can jump straight into the tool and learn as you go, the numbered steps down below will give you an idea of what the process of creating characters looks like through this tool:
+            </p>
             <ol>
               <li>Begin creating a character by pressing 'Create A Character'</li>
+              <li>Select a <b>Race</b>.</li> 
+              <li>Most classes have a <b>Racial Choice</b>, be sure to choose one before moving on.</li>
+              <li>When you're satisfied with it, press the 'Commit' button which will take you to the next step.</li>
+              <li>Select a <b>Class</b>.</li>
               <li></li>
             </ol>
           </div>
         </section>
         <section className='landing-section'>
           <h3>Future Plans</h3>
-          <p></p>
+          <p>The D&D New Character Creator is just one of the many tools that I want to create. I also have plans to develop and implement some of the following in varying degrees and capacities:</p>
+          <div>
+            <ul>
+              <li><b>Class Creator</b>: A class creator tool that allows anyone to easily and quickly create a class using the 5th Edition rules, features, spells, etc. </li>
+            </ul>
+          </div>
         </section>
       </div>
     )

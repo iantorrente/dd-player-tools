@@ -4,7 +4,9 @@ import ClassSection from './CharacterCreation/ClassSection/ClassSection.js';
 import BackgroundSection from './CharacterCreation/BackgroundSection/BackgroundSection.js';
 import AlignmentSection from './CharacterCreation/AlignmentSection/AlignmentSection.js';
 import Navigation from '../Navigation/Navigation.js';
+import CharacterPreview from '../Modals/CharacterPreview.js';
 import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class CharacterCreationView extends Component {
   constructor(props) {
@@ -13,13 +15,52 @@ class CharacterCreationView extends Component {
     this.handleClassSelection = this.handleClassSelection.bind(this);
     this.handleBackgroundSelection = this.handleBackgroundSelection.bind(this);
     this.handleAlignmentSelection = this.handleAlignmentSelection.bind(this);
+    this.handleStatIncrease = this.handleStatIncrease.bind(this);
+    this.handleStatDecrease = this.handleStatDecrease.bind(this);
+    
     this.state = {
       raceSelected: '',
       classSelected: '',
       backgroundSelected: '',
       alignmentSelected: '',
-      playerCharacter: {}
+      playerCharacter: {
+        startingData: {
+          strength: {initialValue: 8},
+          constitution: {initialValue: 8},
+          dexterity: {initialValue: 8},
+          intelligence: {initialValue: 8},
+          wisdom: {initialValue: 8},
+          charisma: {initialValue: 8}
+        },
+        statPoints: 27,
+        stats: {
+          strength: 0,
+          constitution: 0,
+          dexterity: 0,
+          intelligence: 0,
+          wisdom: 0,
+          charisma: 0
+        }
+      }
     }
+  }
+
+  handleStatIncrease(stat) {
+    let pc = this.state.playerCharacter;
+    if (pc.statPoints === 0) {
+      alert('No more avaiable points to distribute');
+    } else {
+      pc.statPoints -= 1;
+      pc.stats[stat] += 1;
+      this.setState({ pc });
+    }
+  }
+
+  handleStatDecrease(stat) {
+    let pc = this.state.playerCharacter;
+    pc.statPoints += 1;
+    pc.stats[stat] -= 1;
+    this.setState({ pc });
   }
 
   handleRaceSelection(e) {
@@ -54,7 +95,20 @@ class CharacterCreationView extends Component {
     return (
       <div className='character-creation-view'>
         <h1>Character Creator</h1>
+        <Link to='/character-creation/character-preview'>
+          <button className='character-preview-btn'>Preview Character</button>
+        </Link>
         <Navigation />
+        <Route 
+          path='/character-creation/character-preview'
+          render={(props) => 
+            <CharacterPreview 
+              handleStatIncrease={this.handleStatIncrease} 
+              handleStatDecrease={this.handleStatDecrease}
+              pc={this.state.playerCharacter} 
+            />
+          }
+        />
         <Route 
           path='/character-creation/race'
           render={(props) => 

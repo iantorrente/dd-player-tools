@@ -1,11 +1,9 @@
 const HALFORC = {
   name: 'Half Orc',
-  strMod: 2,
-  dexMod: 0,
-  conMod: 1,
-  intMod: 0,
-  wisMod: 0,
-  chaMod: 0,
+  statModifiers: {
+    strength: 2,
+    charisma: 1,
+  },
   moveSpeed: 30,
   proficiencies: [],
   features: ['darkvision', 'menacing', 'relentless endurance', 'savage attacks'],

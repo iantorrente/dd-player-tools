@@ -1,11 +1,8 @@
 const HALFELF = {
   name: 'Half Elf',
-  strMod: 0,
-  dexMod: 0,
-  conMod: 0,
-  intMod: 0,
-  wisMod: 0,
-  chaMod: 2,
+  statModifiers: {
+    charisma: 2,
+  },
   moveSpeed: 30,
   proficiencies: [],
   features: ['darkvision', 'fey ancestry'],

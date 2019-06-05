@@ -1,11 +1,8 @@
 const DWARF = {
   name: 'Dwarf',
-  strMod: 0,
-  dexMod: 0,
-  conMod: 2,
-  intMod: 0,
-  wisMod: 0,
-  chaMod: 0,
+  statModifiers: {
+    constitution: 2,
+  },
   moveSpeed: 25,
   proficiencies: ['battleaxe', 'handaxe', 'throwing hammer', 'warhammer'],
   features: ['darkvision', 'dwarven resilience', 'stonecunning'],

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import ExtraChoiceSnippet from './ExtraChoiceSnippet/ExtraChoiceSnippet.js';
 import Race from '../../../../Data/Races.js';
 import Languages from '../../../../Data/Languages.js';
@@ -12,12 +13,10 @@ class RaceSnippet extends Component {
     };
   }
 
-  findModifiers(race) {
-    const statMods = ['strMod', 'dexMod', 'conMod', 'intMod', 'wisMod', 'chaMod'];
-    const statName = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
-    const modifiers = statMods.map((stat, i) => {
-      if (race[statMods[i]] !== 0) {
-        return (<p key={i}>{statName[i]} +{race[statMods[i]]}</p>)
+  findModifiers(race) { 
+    const modifiers = Object.keys(race.statModifiers).map((stat, i) => {
+      if (race.statModifiers[stat] !== 0) {
+        return (<p key={i}>{stat} +{race.statModifiers[stat]}</p>)
       }
     });
     return modifiers;
@@ -60,7 +59,7 @@ class RaceSnippet extends Component {
         this.getLanguageOptions()
       )
     }
-    
+
     const extraOptions = Object.keys(options).map((option, i) => {
       return (
         <option key={i}>
@@ -143,7 +142,9 @@ class RaceSnippet extends Component {
         <div className='extra-choices'>
           {this.findExtraChoices(selectedRace)}
         </div>
-        <button className='commit-btn'>Commit</button>
+        <Link to='/character-creation/class'>
+          <button className='commit-btn'>Commit</button>
+        </Link>
       </div>
     );
   }
