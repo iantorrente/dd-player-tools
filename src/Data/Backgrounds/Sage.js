@@ -1,6 +1,6 @@
 const SAGE = {
   name: 'Sage',
-  description: 'You grew up in the wilds, far from civilization and the comforts of town and technology. You\’ve witnessed the migration of herds larger than forests, survived weather more extreme than any city-dweller could comprehend, and enjoyed the solitude of being the only thinking creature for miles in any direction. The wilds are in your blood, whether you were anomad, an explorer, a recluse, a hunter-gatherer, or even a marauder. Even in places where you don\’t know the specific features of the terrain, you know the ways of the wild.',
+  description: 'You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your fields of study.',
   proficiencies: {
     skill: {
       choice: false,

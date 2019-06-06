@@ -1,5 +1,3 @@
-import { forStatement } from "@babel/types";
-
 const WARLOCK = {
   name: 'Warlock',
   classFeatures: {

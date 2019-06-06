@@ -33,13 +33,14 @@ class CharacterPreview extends Component {
   render() {
     return (
       <div className='character-preview'>
-        <h2>Dave the {this.getAlignment()} {this.getRace()}, 1st Level {this.getClass()}</h2>
+        <h2 className='character-preview-title'>Dave the {this.getAlignment()} {this.getRace()}, 1st Level {this.getClass()}</h2>
         <StatBlock 
+          getRandomNumbers={this.props.getRandomNumbers}
           handleStatIncrease={this.props.handleStatIncrease}
           handleStatDecrease={this.props.handleStatDecrease}
           pc={this.props.pc} 
         />
-        <SkillBlock />
+        <SkillBlock pc={this.props.pc}/>
       </div>
     )
   }

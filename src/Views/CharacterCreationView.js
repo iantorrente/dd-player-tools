@@ -17,32 +17,59 @@ class CharacterCreationView extends Component {
     this.handleAlignmentSelection = this.handleAlignmentSelection.bind(this);
     this.handleStatIncrease = this.handleStatIncrease.bind(this);
     this.handleStatDecrease = this.handleStatDecrease.bind(this);
-    
+    this.randomizeStats = this.randomizeStats.bind(this);
+
     this.state = {
       raceSelected: '',
       classSelected: '',
       backgroundSelected: '',
       alignmentSelected: '',
       playerCharacter: {
-        startingData: {
-          strength: {initialValue: 8},
-          constitution: {initialValue: 8},
-          dexterity: {initialValue: 8},
-          intelligence: {initialValue: 8},
-          wisdom: {initialValue: 8},
-          charisma: {initialValue: 8}
-        },
-        statPoints: 27,
         stats: {
-          strength: 0,
-          constitution: 0,
-          dexterity: 0,
-          intelligence: 0,
-          wisdom: 0,
-          charisma: 0
+          strength: 8,
+          constitution: 8,
+          dexterity: 8,
+          intelligence: 8,
+          wisdom: 8,
+          charisma: 8
         }
       }
     }
+  }
+
+  findLowestNumber(numArray) {
+    let numbersArray = numArray;
+    let lowestNum = Math.min(...numbersArray);
+    let lowestNumIndex = numbersArray.indexOf(lowestNum);
+    numbersArray.splice(lowestNumIndex, 1);
+    return numbersArray;
+  }
+
+  getRandomNumbers() {
+    let randomNum1 = Math.floor((Math.random() * 5) + 1);
+    let randomNum2 = Math.floor((Math.random() * 5) + 1);
+    let randomNum3 = Math.floor((Math.random() * 5) + 1);
+    let randomNum4 = Math.floor((Math.random() * 5) + 1);
+    let randomNumbers = this.findLowestNumber([randomNum1, randomNum2, randomNum3, randomNum4])
+    return randomNumbers;
+    //return the sum of the three remaining numbers
+  }
+
+  getRandomStatValue() {
+    let randomNumbers = this.getRandomNumbers();
+    let sum = randomNumbers.reduce((total, num) => {
+      return total + num
+    });
+    return sum;
+  }
+
+  randomizeStats() {
+    const stats = this.state.playerCharacter.stats;
+    let pc = this.state.playerCharacter;
+    Object.keys(stats).forEach((stat) => {
+      pc.stats[stat] = this.getRandomStatValue();
+      this.setState({ pc });
+    })
   }
 
   handleStatIncrease(stat) {
@@ -102,7 +129,8 @@ class CharacterCreationView extends Component {
         <Route 
           path='/character-creation/character-preview'
           render={(props) => 
-            <CharacterPreview 
+            <CharacterPreview
+              getRandomNumbers={this.randomizeStats}
               handleStatIncrease={this.handleStatIncrease} 
               handleStatDecrease={this.handleStatDecrease}
               pc={this.state.playerCharacter} 

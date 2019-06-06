@@ -5,7 +5,6 @@ class StatBlock extends Component {
   render() {
     return (
       <div className='stat-block'>
-        <h3>Points available: {this.props.pc.statPoints}/27</h3>
         <StatRow 
           handleStatIncrease={this.props.handleStatIncrease}
           handleStatDecrease={this.props.handleStatDecrease}
@@ -17,6 +16,7 @@ class StatBlock extends Component {
           handleStatDecrease={this.props.handleStatDecrease}
           stats={['intelligence', 'wisdom', 'charisma']} 
           pc={this.props.pc} />
+        <button className='randomize-stats-btn' onClick={this.props.getRandomNumbers}>Randomize</button>
       </div>
     )
   }
