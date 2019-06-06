@@ -25,7 +25,11 @@ class ClassSection extends Component {
         </select>
         {
           (Classes[this.props.classSelected] !== undefined) ?
-            <ClassSnippet pc={this.props.pc} classSelected={this.props.classSelected} />
+            <ClassSnippet 
+              pc={this.props.pc} 
+              classSelected={this.props.classSelected} 
+              handleSkillSelection={this.props.handleSkillSelection}
+            />
           :
             <Explanation toExplain='class' />
         }

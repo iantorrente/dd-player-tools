@@ -15,8 +15,7 @@ class CharacterCreationView extends Component {
     this.handleClassSelection = this.handleClassSelection.bind(this);
     this.handleBackgroundSelection = this.handleBackgroundSelection.bind(this);
     this.handleAlignmentSelection = this.handleAlignmentSelection.bind(this);
-    this.handleStatIncrease = this.handleStatIncrease.bind(this);
-    this.handleStatDecrease = this.handleStatDecrease.bind(this);
+    this.handleSkillSelection = this.handleSkillSelection.bind(this);
     this.randomizeStats = this.randomizeStats.bind(this);
 
     this.state = {
@@ -32,7 +31,8 @@ class CharacterCreationView extends Component {
           intelligence: 8,
           wisdom: 8,
           charisma: 8
-        }
+        },
+        skills: []
       }
     }
   }
@@ -72,22 +72,34 @@ class CharacterCreationView extends Component {
     })
   }
 
-  handleStatIncrease(stat) {
-    let pc = this.state.playerCharacter;
-    if (pc.statPoints === 0) {
-      alert('No more avaiable points to distribute');
-    } else {
-      pc.statPoints -= 1;
-      pc.stats[stat] += 1;
-      this.setState({ pc });
-    }
-  }
+  // NOT NEEDED NOW THAT STAT RANDOMIZATION IS IMPLEMENTED
+  // handleStatIncrease(stat) {
+  //   let pc = this.state.playerCharacter;
+  //   if (pc.statPoints === 0) {
+  //     alert('No more avaiable points to distribute');
+  //   } else {
+  //     pc.statPoints -= 1;
+  //     pc.stats[stat] += 1;
+  //     this.setState({ pc });
+  //   }
+  // }
 
-  handleStatDecrease(stat) {
-    let pc = this.state.playerCharacter;
-    pc.statPoints += 1;
-    pc.stats[stat] -= 1;
-    this.setState({ pc });
+  // handleStatDecrease(stat) {
+  //   let pc = this.state.playerCharacter;
+  //   pc.statPoints += 1;
+  //   pc.stats[stat] -= 1;
+  //   this.setState({ pc });
+  // }
+
+  handleSkillSelection(e) {
+    if (e.target.value !== 'Skills:') {
+      let pc = this.state.playerCharacter;
+      const selectedIndex = e.target.selectedIndex;
+      const optionIndex = e.target[selectedIndex].parentElement.getAttribute('index');
+      pc.skills.splice(optionIndex, 1, e.target.value);
+      this.setState({ pc });
+      console.log(pc);
+    }
   }
 
   handleRaceSelection(e) {
@@ -100,8 +112,10 @@ class CharacterCreationView extends Component {
   handleClassSelection(e) {
     let pc = this.state.playerCharacter;
     pc.class = e.target.value;
+    pc.skills = [];
     this.setState({ pc });
     this.setState({ classSelected: e.target.value });
+    console.log(pc);
   }
 
   handleBackgroundSelection(e) {
@@ -109,6 +123,7 @@ class CharacterCreationView extends Component {
     pc.background = e.target.value;
     this.setState({ pc });
     this.setState({ backgroundSelected: e.target.value });
+    console.log(pc);
   }
 
   handleAlignmentSelection(e) {
@@ -153,6 +168,7 @@ class CharacterCreationView extends Component {
               step={2}
               pc={this.state.playerCharacter}
               classSelected={this.state.classSelected} 
+              handleSkillSelection={this.handleSkillSelection}
               handleClassSelection={this.handleClassSelection} 
             />}
         />

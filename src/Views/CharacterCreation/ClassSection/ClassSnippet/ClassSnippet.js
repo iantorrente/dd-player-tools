@@ -140,7 +140,15 @@ class ClassSnippet extends Component {
 
     for (let i = 0; i < choiceCount; i++) {
       returnChoices.push(
-        <div key={i}><select>${this.getSkills(skills)}</select></div>
+        <div key={i}>
+          <select 
+            index={i} 
+            value={this.props.pc.skills[i] ? this.props.pc.skills[i] : 'Skills:'} 
+            onChange={this.props.handleSkillSelection}>
+              <option>Skills:</option>
+              ${this.getSkills(skills)}
+          </select>
+        </div>
       )
     }
     return returnChoices;
