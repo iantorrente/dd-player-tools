@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import CLASSES from '../../../../Data/Classes.js';
-import LANGUAGES from '../../../../Data/Languages.js';
+import Classes from '../../../../Data/Classes.js';
+import Languages from '../../../../Data/Languages.js';
 
 class ClassSnippet extends Component {
   getClassOptions(selectedClass, option) {
     const classOptions = selectedClass.classOptions;
-    let returnOptions = '';
-    if (classOptions[option].type === 'language') {
-      returnOptions = Object.keys(LANGUAGES).map((language, i) => {
+    let returnOptions = [];
+
+    if (option === 'extra language') {
+      returnOptions = Object.keys(Languages).map((language, i) => {
         return (
-          <option key={i} value={language}>{language}</option>
+          <option key={i}>{language}</option>
         )
       })
     } else {
@@ -21,27 +22,48 @@ class ClassSnippet extends Component {
       })
     }
 
+  
     return returnOptions;
   }
 
   findClassOptions(selectedClass) {
-    if (selectedClass.classOptions) {
-      const classOptions = Object.keys(selectedClass.classOptions).map((option, i) => {
+    let returnChoices = [];
+    let choiceCount = 0;
+
+    if (selectedClass.classOptions && selectedClass.classOptions['extra language'] !== undefined) {
+      choiceCount = selectedClass.classOptions['extra language'].amount;
+
+      for (let i = 0; i < choiceCount; i++) {
+        returnChoices.push(
+          <div key={i}>
+            <h3>Class Option - Extra Language {i + 1}:</h3>
+            <select 
+              index={i} 
+              source='class'
+              value={this.props.pc.classExtraLanguages[i] ? this.props.pc.classExtraLanguages[i] : 'Languages:'}
+              onChange={this.props.handleLanguageSelection}
+            >
+              <option>Languages:</option>
+              {this.getClassOptions(selectedClass, 'extra language')}
+            </select>
+          </div>
+        )
+      }
+    } else if (selectedClass.classOptions && !selectedClass.classOptions['extra language']) {
+      returnChoices = Object.keys(selectedClass.classOptions).map((option, i) => {
         return (
-          <span key={i}>
-            <b>{option}</b>
-            <br />
-            <select>{this.getClassOptions(selectedClass, option)}</select>
-            <br />
-          </span>
+          <div key={i}>
+            <h3>Class Option - {option}:</h3>
+            <select>
+              <option value={option}>{option}:</option>
+              {this.getClassOptions(selectedClass, option)}
+            </select>
+          </div>
         )
       })
-      return classOptions;
-    } else {
-      return (
-        <p>No class options</p>
-      )
     }
+    
+    return returnChoices;
   }
 
   findGimmickDescriptions(gimmick) {
@@ -146,7 +168,7 @@ class ClassSnippet extends Component {
             value={this.props.pc.skills[i] ? this.props.pc.skills[i] : 'Skills:'} 
             onChange={this.props.handleSkillSelection}>
               <option>Skills:</option>
-              ${this.getSkills(skills)}
+              {this.getSkills(skills)}
           </select>
         </div>
       )
@@ -187,17 +209,16 @@ class ClassSnippet extends Component {
           <p key={i}><b>{featureDictionary[feature]}</b>: {classFeatures[feature]}</p>
         )
       }
-
     })
     return features;
   }
 
   render() {
-    const selectedClass = CLASSES[this.props.classSelected];
+    const selectedClass = Classes[this.props.classSelected];
     return (
       <div className='snippet'>
         <section className='features-list'>
-          <h3>Features:</h3>
+          <h3>Hit Point Values:</h3>
           {this.findFeatures(selectedClass)}
         </section>
 
@@ -208,7 +229,6 @@ class ClassSnippet extends Component {
         </section>
 
         <section className='options-list'>
-          <h3>Class Options:</h3>
           {this.findClassOptions(selectedClass)}
         </section>
 

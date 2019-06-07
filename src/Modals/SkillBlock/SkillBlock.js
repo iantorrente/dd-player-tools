@@ -45,7 +45,7 @@ class SkillBlock extends Component {
 
   render() {
     return (
-      <div className='skill-block'>
+      <div className='skill-block block'>
         <h3>Skills:</h3>
         {this.getSkills()}
       </div>

@@ -46,9 +46,17 @@ class BackgroundSnippet extends Component {
 
         {
           (background.languages) && 
-            <section className='language-list'>
+            <section 
+              className='language-list'
+            >
               <h3>Languages:</h3>
-              <select>
+              <select
+                index={0}
+                source='background'
+                value={this.props.pc.backgroundLanguages[0] ? this.props.pc.backgroundLanguages[0] : 'Languages:'}
+                onChange={this.props.handleLanguageSelection}
+              >
+                <option>Languages:</option>
                 {this.findLanguages(background)}
               </select>
             </section>

@@ -4,7 +4,7 @@ import StatRow from './StatRow.js';
 class StatBlock extends Component {
   render() {
     return (
-      <div className='stat-block'>
+      <div className='stat-block block'>
         <h3>Stats:</h3>
         <StatRow 
           handleStatIncrease={this.props.handleStatIncrease}

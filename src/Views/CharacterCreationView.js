@@ -16,6 +16,7 @@ class CharacterCreationView extends Component {
     this.handleBackgroundSelection = this.handleBackgroundSelection.bind(this);
     this.handleAlignmentSelection = this.handleAlignmentSelection.bind(this);
     this.handleSkillSelection = this.handleSkillSelection.bind(this);
+    this.handleLanguageSelection = this.handleLanguageSelection.bind(this);
     this.randomizeStats = this.randomizeStats.bind(this);
 
     this.state = {
@@ -32,7 +33,9 @@ class CharacterCreationView extends Component {
           wisdom: 8,
           charisma: 8
         },
-        skills: []
+        skills: [],
+        classExtraLanguages: [],
+        backgroundLanguages: []
       }
     }
   }
@@ -98,8 +101,25 @@ class CharacterCreationView extends Component {
       const optionIndex = e.target[selectedIndex].parentElement.getAttribute('index');
       pc.skills.splice(optionIndex, 1, e.target.value);
       this.setState({ pc });
-      console.log(pc);
     }
+  }
+
+  handleLanguageSelection(e) {
+    let pc = this.state.playerCharacter;
+    const selectedIndex = e.target.selectedIndex;
+    const optionIndex = e.target[selectedIndex].parentElement.getAttribute('index');
+    const source = e.target[selectedIndex].parentElement.getAttribute('source');
+
+    if (source === 'class') {
+      pc.classExtraLanguages.splice(optionIndex, 1, e.target.value);
+      this.setState({ pc });
+    }
+
+    if (source === 'background') {
+      pc.backgroundLanguages.splice(optionIndex, 1, e.target.value);
+      this.setState({ pc });
+    }
+    console.log(this.state.playerCharacter);
   }
 
   handleRaceSelection(e) {
@@ -169,7 +189,8 @@ class CharacterCreationView extends Component {
               pc={this.state.playerCharacter}
               classSelected={this.state.classSelected} 
               handleSkillSelection={this.handleSkillSelection}
-              handleClassSelection={this.handleClassSelection} 
+              handleClassSelection={this.handleClassSelection}
+              handleLanguageSelection={this.handleLanguageSelection}
             />}
         />
         <Route 
@@ -180,6 +201,7 @@ class CharacterCreationView extends Component {
               pc={this.state.playerCharacter}
               backgroundSelected={this.state.backgroundSelected}
               handleBackgroundSelection={this.handleBackgroundSelection}
+              handleLanguageSelection={this.handleLanguageSelection}
             />}
         />
         <Route 

@@ -25,7 +25,11 @@ class BackgroundSection extends Component {
         </select>
         {
           (Backgrounds[selectedBackground] !== undefined) ?
-            <BackgroundSnippet backgroundSelected={selectedBackground} />
+            <BackgroundSnippet
+              pc={this.props.pc}
+              handleLanguageSelection={this.props.handleLanguageSelection} 
+              backgroundSelected={selectedBackground} 
+            />
           :
             <Explanation toExplain='background' />
         }
