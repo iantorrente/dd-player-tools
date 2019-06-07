@@ -2,8 +2,8 @@ const BARBARIAN = {
   name: 'Barbarian',
   classFeatures: {
     hitDice: '1d12 per Barbarian level',
-    hpAtLevelOne: '12 + constitution',
-    hpGainOnLevelUp: '7 + constitution',
+    hpAtLevelOne: 12,
+    hpGainOnLevelUp: 7,
     proficiencies: {
       armor: ['light armor', 'medium armor', 'shields'],
       weapons: ['simple weapons', 'marital weapons'],

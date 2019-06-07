@@ -5,6 +5,7 @@ class StatBlock extends Component {
   render() {
     return (
       <div className='stat-block'>
+        <h3>Stats:</h3>
         <StatRow 
           handleStatIncrease={this.props.handleStatIncrease}
           handleStatDecrease={this.props.handleStatDecrease}

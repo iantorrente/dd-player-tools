@@ -2,8 +2,8 @@ const FIGHTER = {
   name: 'Fighter',
   classFeatures: {
     hitDice: '1d10 per Fighter level',
-    hpAtLevelOne: '10 + constitution',
-    hpGainOnLevelUp: '6 + constitution',
+    hpAtLevelOne: 10,
+    hpGainOnLevelUp: 6,
     proficiencies: {
       armor: ['all armor', 'shields'],
       weapons: ['simple weapons', 'martial weapons'],

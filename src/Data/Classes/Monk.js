@@ -2,8 +2,8 @@ const MONK = {
   name: 'Monk',
   classFeatures: {
     hitDice: '1d8 per Monk level',
-    hpAtLevelOne: '8 + constitution',
-    hpGainOnLevelUp: '5 + constitution',
+    hpAtLevelOne: 8,
+    hpGainOnLevelUp: 5,
     proficiencies: {
       armor: [],
       weapons: ['simple weapons', 'shortswords'],

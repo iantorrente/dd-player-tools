@@ -2,8 +2,8 @@ const RANGER = {
   name: 'Ranger',
   classFeatures: {
     hitDice: '1d10 per Ranger level',
-    hpAtLevelOne: '10 + constitution',
-    hpGainOnLevelUp: '6 + constitution',
+    hpAtLevelOne: 10,
+    hpGainOnLevelUp: 6,
     proficiencies: {
       armor: ['light armor', 'medium armor', 'shields'],
       weapons: ['simple weapons', 'martial weapons'],

@@ -2,8 +2,8 @@ const WARLOCK = {
   name: 'Warlock',
   classFeatures: {
     hitDice: '1d8 per Warlock level',
-    hpAtLevelOne: '8 + constitution',
-    hpGainOnLevelUp: '5 + constitution',
+    hpAtLevelOne: 8,
+    hpGainOnLevelUp: 5,
     proficiencies: {
       armor: ['light armor'],
       weapons: ['simple weapons'],

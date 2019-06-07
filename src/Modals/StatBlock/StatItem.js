@@ -5,9 +5,7 @@ import StatModifiers from '../../Data/StatModifiers.js';
 class StatItem extends Component {
   findStatModifier() {
     const statValue = this.findStatValue();
-    console.log(statValue);
     const statModifier = StatModifiers[statValue].value;
-    console.log(`${statValue}: ${statModifier} Modifier`);
     return statModifier;
   }
 

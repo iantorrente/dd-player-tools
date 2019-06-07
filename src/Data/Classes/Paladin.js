@@ -2,8 +2,8 @@ const PALADIN = {
   name: 'Paladin',
   classFeatures: {
     hitDice: '1d10 per Paladin level',
-    hpAtLevelOne: '10 + constitution',
-    hpGainOnLevelUp: '6 + constitution',
+    hpAtLevelOne: 10,
+    hpGainOnLevelUp: 6,
     proficiencies: {
       armor: ['all armor', 'shields'],
       weapons: ['simple weapons', 'martial weapons'],

@@ -32,19 +32,11 @@ class SkillBlock extends Component {
       if (proficientSkills.includes(skill) && Classes[this.props.pc.class] !== undefined) {
         modifier += classSelected.levelAdditions[0].proficiencyBonus;
         return (
-          <span key={i} className='skill-item'>
-            <span className='proficient'></span>
-            <h5 className='skill-name'>{skill}</h5>
-            <h5 className='skill-modifier'><b>{modifier}</b></h5>
-          </span>
+          <SkillItem key={i} skill={skill} modifier={modifier} tiedStat={Skills[skill].tiedStat} proficient='proficient' />
         )
       } else {
         return (
-          <span key={i} className='skill-item'>
-            <span className='not-proficient'></span>
-            <h5 className='skill-name'>{skill}</h5>
-            <h5 className='skill-modifier'><b>{modifier}</b></h5>
-          </span>
+          <SkillItem key={i} skill={skill} modifier={modifier} tiedStat={Skills[skill].tiedStat} proficient='not-proficient' />
         )
       }
     })

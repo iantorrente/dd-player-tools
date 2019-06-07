@@ -2,8 +2,8 @@ const WIZARD = {
   name: 'Wizard',
   classFeatures: {
     hitDice: '1d6 per Wizard level',
-    hpAtLevelOne: '6 + constitution',
-    hpGainOnLevelUp: '4 + constitution',
+    hpAtLevelOne: 6,
+    hpGainOnLevelUp: 4,
     proficiencies: {
       armor: [],
       weapons: ['daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows'],

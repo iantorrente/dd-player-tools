@@ -2,8 +2,8 @@ const DRUID = {
   name: 'Druid',
   classFeatures: {
     hitDice: '1d8 per Druid level',
-    hpAtLevelOne: '8 + constitution',
-    hpGainOnLevelUp: '5 + constitution',
+    hpAtLevelOne: 8,
+    hpGainOnLevelUp: 5,
     proficiencies: {
       armor: ['light armor', 'medium armor', 'shields'],
       weapons: ['clubs', 'daggers', 'darts', 'javelins', 'maces', 'quarterstaffs', 'scimitars', 'sickles', 'slings', 'spears'],

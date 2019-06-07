@@ -176,11 +176,18 @@ class ClassSnippet extends Component {
       hpGainOnLevelUp: 'HP Gain After Level One'
     }
     const features = Object.keys(classFeatures).map((feature, i) => {
+      if (feature === 'hpAtLevelOne' || feature === 'hpGainOnLevelUp') {
+        return (
+          <p key={i}><b>{featureDictionary[feature]}</b>: {classFeatures[feature]} + Constitution</p>
+        )
+      }
+
       if (feature !== 'proficiencies') {
         return (
           <p key={i}><b>{featureDictionary[feature]}</b>: {classFeatures[feature]}</p>
         )
       }
+
     })
     return features;
   }

@@ -2,8 +2,8 @@ const CLERIC = {
   name: 'Cleric',
   classFeatures: {
     hitDice: '1d8 per Bard level',
-    hpAtLevelOne: '8 + constitution',
-    hpGainOnLevelUp: '5 + constitution',
+    hpAtLevelOne: 8,
+    hpGainOnLevelUp: 5,
     proficiencies: {
       armor: ['light armor', 'medium armor', 'shields'],
       weapons: ['all simple weapons'],

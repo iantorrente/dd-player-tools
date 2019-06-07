@@ -4,6 +4,7 @@ import Classes from '../Data/Classes.js';
 import Alignments from '../Data/Alignments.js';
 import StatBlock from './StatBlock/StatBlock.js';
 import SkillBlock from './SkillBlock/SkillBlock.js';
+import CombatStatsBlock from './CombatStatsBlock/CombatStatsBlock.js';
 
 class CharacterPreview extends Component {
   getRace() {
@@ -34,6 +35,9 @@ class CharacterPreview extends Component {
     return (
       <div className='character-preview'>
         <h2 className='character-preview-title'>Dave the {this.getAlignment()} {this.getRace()}, 1st Level {this.getClass()}</h2>
+        <CombatStatsBlock 
+          pc={this.props.pc}
+        />
         <StatBlock 
           getRandomNumbers={this.props.getRandomNumbers}
           handleStatIncrease={this.props.handleStatIncrease}
@@ -41,6 +45,12 @@ class CharacterPreview extends Component {
           pc={this.props.pc} 
         />
         <SkillBlock pc={this.props.pc}/>
+        {/* FeaturesBlock */}
+        {/* LanguagesBlock */}
+        {/* Will have to come back to this when the item data refactor is done
+          WeaponsBlock 
+        */}
+        {/* EquipmentBlock */}
       </div>
     )
   }
