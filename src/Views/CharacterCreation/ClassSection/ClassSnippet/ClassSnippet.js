@@ -121,7 +121,10 @@ class ClassSnippet extends Component {
         return (
           <div key={i}>
             <label><b>{equipment}:</b></label><br />
-            <select>
+            <select
+              type={equipment} 
+              onChange={this.props.handleEquipmentSelection}
+            >
               {this.getEquipmentChoices(selectedClass, equipment)}
             </select>
           </div>
@@ -131,7 +134,7 @@ class ClassSnippet extends Component {
     return returnEquipChoices;
   }
 
-  findEquipment(selectedClass) {
+  findMandatoryEquipment(selectedClass) {
     const equipment = selectedClass.equipment;
     if (equipment.mandatory.items) {
       const mandatoryEquipment = equipment.mandatory.items.map((item, i) => {
@@ -239,7 +242,7 @@ class ClassSnippet extends Component {
 
         <section className='equipments-list'>
           <h3>Starting Equipment:</h3>
-          {this.findEquipment(selectedClass)}
+          {this.findMandatoryEquipment(selectedClass)}
           <h4>Equipment Choices:</h4>
           {this.getEquipment(selectedClass)}
         </section>

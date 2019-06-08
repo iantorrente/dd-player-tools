@@ -7,7 +7,7 @@ const DRAGONBORN = {
   moveSpeed: 30,
   proficiencies: [],
   features: [],
-  languages: ['common', 'draconic'],
+  languages: ['Common', 'Draconic'],
   size: 'medium',
   speed: 30,
   raceChoices: {

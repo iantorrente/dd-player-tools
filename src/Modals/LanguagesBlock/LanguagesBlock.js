@@ -16,7 +16,6 @@ class LanguagesBlock extends Component {
     }
 
     if (this.props.pc.backgroundLanguages.length > 0) {
-      console.log('language background found');
       background = Backgrounds[this.props.pc.background];
       languages = [...languages, ...this.props.pc.backgroundLanguages]
     }
@@ -33,7 +32,7 @@ class LanguagesBlock extends Component {
 
     const returnLanguages = languages.map((language, i) => {
       return (
-        <LanguageItem language={language} />
+        <LanguageItem key={i} language={language} />
       )
     })
 

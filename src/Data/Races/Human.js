@@ -11,7 +11,7 @@ const HUMAN = {
   moveSpeed: 30,
   proficiencies: [],
   features: [],
-  languages: ['common', 'extra language of choice'],
+  languages: ['common'],
   size: 'medium',
   raceChoices: {
     'extra language': {

@@ -30,6 +30,7 @@ class ClassSection extends Component {
               classSelected={this.props.classSelected} 
               handleSkillSelection={this.props.handleSkillSelection}
               handleLanguageSelection={this.props.handleLanguageSelection}
+              handleEquipmentSelection={this.props.handleEquipmentSelection}
             />
           :
             <Explanation toExplain='class' />

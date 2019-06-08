@@ -17,19 +17,19 @@ const FIGHTER = {
   },
   equipment: {
     mandatory: {},
-    items: {
+    item: {
       options: [
         'chain mail',
         'leather, longbow, and 20 arrows'
       ]
     },
-    weapons: {
+    weapon: {
       options: [
         'martial weapon and a shield',
         'two martial weapons'
       ]
     },
-    'secondary weapons': {
+    'secondary weapon': {
       options: [
         'light crossbow and 20 bolts',
         'two handaxes'

@@ -17,6 +17,7 @@ class CharacterCreationView extends Component {
     this.handleAlignmentSelection = this.handleAlignmentSelection.bind(this);
     this.handleSkillSelection = this.handleSkillSelection.bind(this);
     this.handleLanguageSelection = this.handleLanguageSelection.bind(this);
+    this.handleEquipmentSelection = this.handleEquipmentSelection.bind(this);
     this.randomizeStats = this.randomizeStats.bind(this);
 
     this.state = {
@@ -35,7 +36,15 @@ class CharacterCreationView extends Component {
         },
         skills: [],
         classExtraLanguages: [],
-        backgroundLanguages: []
+        backgroundLanguages: [],
+        equipmentChoices: {
+          weapon: '',
+          'secondary weapon': '',
+          armor: '',
+          pack: '',
+          accessory: '',
+          item: ''
+        }
       }
     }
   }
@@ -93,6 +102,18 @@ class CharacterCreationView extends Component {
   //   pc.stats[stat] -= 1;
   //   this.setState({ pc });
   // }
+
+  handleEquipmentSelection(e) {
+    let pc = this.state.playerCharacter;
+    const selectedIndex = e.target.selectedIndex;
+    const type = e.target[selectedIndex].parentElement.getAttribute('type');
+    console.log(type);
+
+    pc.equipmentChoices[type] = e.target.value;
+
+    this.setState({ pc });
+    console.log(this.state.playerCharacter);
+  }
 
   handleSkillSelection(e) {
     if (e.target.value !== 'Skills:') {
@@ -191,6 +212,7 @@ class CharacterCreationView extends Component {
               handleSkillSelection={this.handleSkillSelection}
               handleClassSelection={this.handleClassSelection}
               handleLanguageSelection={this.handleLanguageSelection}
+              handleEquipmentSelection={this.handleEquipmentSelection}
             />}
         />
         <Route 

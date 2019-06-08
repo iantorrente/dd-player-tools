@@ -7,6 +7,7 @@ import SkillBlock from './SkillBlock/SkillBlock.js';
 import CombatStatsBlock from './CombatStatsBlock/CombatStatsBlock.js';
 import FeaturesBlock from './FeaturesBlock/FeaturesBlock.js';
 import LanguagesBlock from './LanguagesBlock/LanguagesBlock.js';
+import EquipmentBlock from './EquipmentBlock/EquipmentBlock.js';
 
 class CharacterPreview extends Component {
   getRace() {
@@ -46,13 +47,13 @@ class CharacterPreview extends Component {
           handleStatDecrease={this.props.handleStatDecrease}
           pc={this.props.pc} 
         />
-        <SkillBlock pc={this.props.pc}/>
+        <SkillBlock pc={this.props.pc} />
         <FeaturesBlock pc={this.props.pc} />
         <LanguagesBlock pc={this.props.pc} />
         {/* Will have to come back to this when the item data refactor is done
           WeaponsBlock 
         */}
-        {/* EquipmentBlock */}
+        <EquipmentBlock pc={this.props.pc} />
       </div>
     )
   }

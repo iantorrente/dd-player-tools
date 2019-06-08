@@ -7,7 +7,7 @@ const HALFORC = {
   moveSpeed: 30,
   proficiencies: [],
   features: ['darkvision', 'menacing', 'relentless endurance', 'savage attacks'],
-  languages: ['common', 'orcish'],
+  languages: ['Common', 'Orcish'],
   size: 'medium',
   raceChoices: {}
 }

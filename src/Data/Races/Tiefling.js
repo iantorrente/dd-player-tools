@@ -7,7 +7,7 @@ const TIEFLING = {
   moveSpeed: 30,
   proficiencies: [],
   features: ['darkvision', 'hellish resistance', 'infernal legacy'],
-  languages: ['common', 'infernal'],
+  languages: ['Common', 'Infernal'],
   size: 'medium',
   raceChoices: {}
 }

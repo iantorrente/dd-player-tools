@@ -6,7 +6,7 @@ const HALFLING = {
   moveSpeed: 25,
   proficiencies: [],
   features: ['lucky', 'brave', 'halfling nimbleness'],
-  languages: ['common', 'halfling'],
+  languages: ['Common', 'Halfling'],
   size: 'small',
   raceChoices: {
     'halfling subrace': {

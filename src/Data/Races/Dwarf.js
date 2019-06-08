@@ -6,7 +6,7 @@ const DWARF = {
   moveSpeed: 25,
   proficiencies: ['battleaxe', 'handaxe', 'throwing hammer', 'warhammer'],
   features: ['darkvision', 'dwarven resilience', 'stonecunning'],
-  languages: ['common', 'dwarvish'],
+  languages: ['Common', 'Dwarvish'],
   size: 'medium',
   raceChoices: {
     'dwarven subrace': {

@@ -20,11 +20,11 @@ const MONK = {
       items: [
         {
           name: 'darts',
-          amount: 10
+          count: 10
         }
       ]
     },
-    weapons: {
+    weapon: {
       options: [
         'shortsword',
         'club',

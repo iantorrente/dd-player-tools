@@ -6,7 +6,7 @@ const HALFELF = {
   moveSpeed: 30,
   proficiencies: [],
   features: ['darkvision', 'fey ancestry'],
-  languages: ['common', 'elvish'],
+  languages: ['Common', 'Elvish'],
   size: 'medium',
   raceChoices: {
     'ability score increase': {

@@ -6,7 +6,7 @@ const GNOME = {
   moveSpeed: 25,
   proficiencies: [],
   features: ['gnome cunning'],
-  languages: ['common', 'gnomish'],
+  languages: ['Common', 'Gnomish'],
   size: 'small',
   raceChoices: {
     'gnomish subrace': {

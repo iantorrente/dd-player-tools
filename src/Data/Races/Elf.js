@@ -6,7 +6,7 @@ const ELF = {
   moveSpeed: 30,
   proficiencies: ['perception'],
   features: ['darkvision', 'fey ancestry', 'trance'],
-  languages: ['common', 'elvish'],
+  languages: ['Common', 'Elvish'],
   size: 'medium',
   raceChoices: {
     'elven subrace': {
