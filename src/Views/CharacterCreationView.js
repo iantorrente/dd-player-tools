@@ -18,6 +18,7 @@ class CharacterCreationView extends Component {
     this.handleSkillSelection = this.handleSkillSelection.bind(this);
     this.handleLanguageSelection = this.handleLanguageSelection.bind(this);
     this.handleEquipmentSelection = this.handleEquipmentSelection.bind(this);
+    this.handleCharacterSave = this.handleCharacterSave.bind(this);
     this.randomizeStats = this.randomizeStats.bind(this);
 
     this.state = {
@@ -174,6 +175,16 @@ class CharacterCreationView extends Component {
     this.setState({ alignmentSelected: e.target.value });
   }
 
+  handleCharacterSave() {
+    console.log('trigger character save');
+    fetch('http://localhost:8000/', {
+      method: 'POST'
+    })
+    .then(response => {
+      console.log(response);
+    })
+  }
+
   render() {
     return (
       <div className='character-creation-view'>
@@ -186,10 +197,11 @@ class CharacterCreationView extends Component {
           path='/character-creation/character-preview'
           render={(props) => 
             <CharacterPreview
+              pc={this.state.playerCharacter} 
               getRandomNumbers={this.randomizeStats}
               handleStatIncrease={this.handleStatIncrease} 
               handleStatDecrease={this.handleStatDecrease}
-              pc={this.state.playerCharacter} 
+              handleCharacterSave={this.handleCharacterSave}
             />
           }
         />

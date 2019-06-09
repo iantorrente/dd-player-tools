@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Alignments from '../../../../Data/Alignments.js';
 
 class AlignmentSnippet extends Component {
@@ -24,6 +25,9 @@ class AlignmentSnippet extends Component {
           <h3>Examples:</h3>
           {this.findAlignmentExamples(Alignments[alignment])}
         </section>
+        <Link to='/character-creation/character-preview'> 
+          <button className='commit-btn'>Finalize</button>
+        </Link>
       </div>
     )
   }
