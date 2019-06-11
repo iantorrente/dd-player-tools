@@ -9,7 +9,6 @@ class ExtraChoiceSnippet extends Component {
   render() {
     const race = Races[this.props.pc.race];
     const raceChoiceOptions = race.raceChoices[this.props.pc.extraRaceChoiceSource].options;
-    console.log(this.props.pc.extraRaceChoice.toLowerCase());
     return (
       <div className='extra-choice-snippet'>
         <h3>{raceChoiceOptions[this.props.pc.extraRaceChoice.toLowerCase()].name}</h3>

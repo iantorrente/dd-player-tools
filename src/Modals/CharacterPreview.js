@@ -61,7 +61,7 @@ class CharacterPreview extends Component {
           WeaponsBlock 
         */}
         <EquipmentBlock pc={this.props.pc} />
-        <button onClick={this.props.handleCharacterSave}>Save Character</button>
+        {/* <button onClick={this.props.handleCharacterSave}>Save Character</button> */}
       </div>
     )
   }

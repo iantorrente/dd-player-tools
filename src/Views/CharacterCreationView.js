@@ -21,7 +21,7 @@ class CharacterCreationView extends Component {
     this.handleLanguageSelection = this.handleLanguageSelection.bind(this);
     this.handleEquipmentSelection = this.handleEquipmentSelection.bind(this);
     this.handleProficiencySelection = this.handleProficiencySelection.bind(this);
-    this.handleCharacterSave = this.handleCharacterSave.bind(this);
+    // this.handleCharacterSave = this.handleCharacterSave.bind(this);
     this.randomizeStats = this.randomizeStats.bind(this);
 
     this.state = {
@@ -70,7 +70,6 @@ class CharacterCreationView extends Component {
   }
 
   fetchRaceData() {
-    console.log(API_ENDPOINT);
     fetch(`https://afternoon-ocean-86123.herokuapp.com/api/races-data`)
     .then(results => {
       return results.json();
@@ -184,12 +183,10 @@ class CharacterCreationView extends Component {
     let pc = this.state.playerCharacter;
     const selectedIndex = e.target.selectedIndex;
     const type = e.target[selectedIndex].parentElement.getAttribute('type');
-    console.log(type);
 
     pc.equipmentChoices[type] = e.target.value;
 
     this.setState({ pc });
-    console.log(this.state.playerCharacter);
   }
 
   handleSkillSelection(e) {
@@ -217,7 +214,6 @@ class CharacterCreationView extends Component {
       pc.backgroundLanguages.splice(optionIndex, 1, e.target.value);
       this.setState({ pc });
     }
-    console.log(this.state.playerCharacter);
   }
 
   handleProficiencySelection(e) {
@@ -242,7 +238,6 @@ class CharacterCreationView extends Component {
     let pc = this.state.playerCharacter;
     const selectedIndex = e.target.selectedIndex;
     const source = e.target[selectedIndex].parentElement.getAttribute('source');
-    console.log(source);
     //If source = 'ability score increase' or 'skill versatility' then add them to the stats and the features instead of the extraRaceChoice
     pc.extraRaceChoice = e.target.value;
     pc.extraRaceChoiceSource = source;
@@ -255,7 +250,6 @@ class CharacterCreationView extends Component {
     pc.skills = [];
     this.setState({ pc });
     this.setState({ classSelected: e.target.value });
-    console.log(pc);
   }
 
   handleBackgroundSelection(e) {
@@ -263,7 +257,6 @@ class CharacterCreationView extends Component {
     pc.background = e.target.value;
     this.setState({ pc });
     this.setState({ backgroundSelected: e.target.value });
-    console.log(pc);
   }
 
   handleAlignmentSelection(e) {
@@ -273,33 +266,31 @@ class CharacterCreationView extends Component {
     this.setState({ alignmentSelected: e.target.value });
   }
 
-  handleCharacterSave() {
-    console.log('trigger character save');
-    //format the characterobject before it gets sent out
-    const characterObject = { 
-      characterobject: {
-        race: this.state.playerCharacter.race,
-        class: this.state.playerCharacter.class,
-        background: this.state.playerCharacter.background,
-        alignment: this.state.playerCharacter.alignment,
-        stats: this.state.playerCharacter.stats
-      }
-    }
+  // handleCharacterSave() {
+  //   //format the characterobject before it gets sent out
+  //   const characterObject = { 
+  //     characterobject: {
+  //       race: this.state.playerCharacter.race,
+  //       class: this.state.playerCharacter.class,
+  //       background: this.state.playerCharacter.background,
+  //       alignment: this.state.playerCharacter.alignment,
+  //       stats: this.state.playerCharacter.stats
+  //     }
+  //   }
 
-    fetch('http://localhost:8000/', {
-      method: 'POST',
-      body: JSON.stringify(characterObject),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(response => {
-      console.log(response.headers);
-    })
-  }
+  //   fetch('http://localhost:8000/', {
+  //     method: 'POST',
+  //     body: JSON.stringify(characterObject),
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     }
+  //   })
+  //   .then(response => {
+  //     console.log(response.headers);
+  //   })
+  // }
 
   render() {
-    console.log(this.state.data);
     return (
       <div className='character-creation-view'>
         <h1>Character Creator</h1>

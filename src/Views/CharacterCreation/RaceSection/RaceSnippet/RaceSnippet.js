@@ -93,7 +93,6 @@ class RaceSnippet extends Component {
 
   render() {
     const selectedRace = Races[this.props.pc.race];
-    console.log(this.props.pc.race);
     return (
       // change divs into sections inside of 'race-snippet'
       <div className='snippet'>

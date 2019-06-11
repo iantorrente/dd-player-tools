@@ -6,7 +6,6 @@ class ClassSnippet extends Component {
   getClassOptions(selectedClass, option) {
     const classOptions = selectedClass.classOptions;
     let returnOptions = [];
-    console.log(option);
 
     if (option === 'extra language') {
       returnOptions = Object.keys(Languages).map((language, i) => {
@@ -29,7 +28,6 @@ class ClassSnippet extends Component {
   findClassOptions(selectedClass) {
     let returnChoices = [];
     let choiceCount = 0;
-    console.log(selectedClass.classOptions);
 
     if (selectedClass.classOptions && selectedClass.classOptions['extra language'] !== undefined) {
       choiceCount = selectedClass.classOptions['extra language'].amount;
