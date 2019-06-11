@@ -14,61 +14,61 @@ const DRAGONBORN = {
     'draconic ancestry': {
       name: 'Draconic Ancestry',
       options: {
-        black: {
+        'black dragon': {
           name: 'Black Dragon',
           damageType: 'acid',
           breathWep: '5 by 30 ft. line (Dex. save)',
           damageResistance: 'acid'
         },
-        blue: {
+        'blue dragon': {
           name: 'Blue Dragon',
           damageType: 'lightning',
           breathWep: '5 by 30 ft. line (Dex. save)',
           damageResistance: 'lightning'
         },
-        brass: {
+        'brass dragon': {
           name: 'Brass Dragon',
           damageType: 'fire',
           breathWep: '5 by 30 ft. line (Dex. save)',
           damageResistance: 'fire'
         },
-        bronze: {
+        'bronze dragon': {
           name: 'Bronze Dragon',
           damageType: 'lightning',
           breathWep: '5 by 30 ft. line (Dex. save)',
           damageResistance: 'lightning'
         },
-        copper: {
+        'copper dragon': {
           name: 'Copper Dragon',
           damageType: 'acid',
           breathWep: '5 by 30 ft. line (Dex. save)',
           damageResistance: 'acid'
         },
-        gold: {
+        'gold dragon': {
           name: 'Gold Dragon',
           damageType: 'fire',
           breathWep: '15 ft. cone (Dex. save)',
           damageResistance: 'fire'
         },
-        green: {
+        'green dragon': {
           name: 'Green Dragon',
           damageType: 'poison',
           breathWep: '15 ft. cone (Dex. save)',
           damageResistance: 'poison'
         },
-        red: {
+        'red dragon': {
           name: 'Red Dragon',
           damageType: 'fire',
           breathWep: '15 ft. cone (Dex. save)',
           damageResistance: 'fire'
         },
-        silver: {
+        'silver dragon': {
           name: 'Silver Dragon',
           damageType: 'cold',
           breathWep: '15 ft. cone (Dex. save)',
           damageResistance: 'cold'
         },
-        white: {
+        'white dragon': {
           name: 'White Dragon',
           damageType: 'cold',
           breathWep: '15 ft. cone (Dex. save)',

@@ -12,12 +12,12 @@ const HALFLING = {
     'halfling subrace': {
       name: 'Halfling Subrace',
       options: {
-        'lightfoot': {
+        'lightfoot halfling': {
           name: 'Lightfoot Halfling',
           chaMod: 1,
           features: ['naturally stealthy']
         },
-        'stout': {
+        'stout halfling': {
           name: 'Stout Halfling',
           conMod: 1,
           features: ['stout resilience']
@@ -25,19 +25,6 @@ const HALFLING = {
       }
     }
   }
-  // extraChoices1Name: 'Halfling Subrace',
-  // extraChoices1: {
-  //   'lightfoot': {
-  //     name: 'lightfoot',
-  //     chaMod: 1,
-  //     features: ['naturally stealthy']
-  //   },
-  //   'stout': {
-  //     name: 'stout',
-  //     conMod: 1,
-  //     features: ['stout resilience']
-  //   }
-  // }
 }
 
 export default HALFLING;

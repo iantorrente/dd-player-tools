@@ -13,7 +13,7 @@ class AlignmentSnippet extends Component {
   }
 
   render() {
-    const alignment = this.props.alignmentSelected;
+    const alignment = this.props.pc.alignment;
     return (
       <div className='alignment-snippet snippet'>
         <section>

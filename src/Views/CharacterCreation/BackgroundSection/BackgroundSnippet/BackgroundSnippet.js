@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import BACKGROUNDS from '../../../../Data/Backgrounds.js';
+import Backgrounds from '../../../../Data/Backgrounds.js';
 import Languages from '../../../../Data/Languages.js';
 
 class BackgroundSnippet extends Component {
@@ -36,7 +36,7 @@ class BackgroundSnippet extends Component {
   }
 
   render() {
-    const background = BACKGROUNDS[this.props.backgroundSelected];
+    const background = Backgrounds[this.props.pc.background];
     return (
       <div className='snippet'>
         <section className='description-list'>

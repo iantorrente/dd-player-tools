@@ -12,6 +12,7 @@ class CharacterCreationView extends Component {
   constructor(props) {
     super(props);
     this.handleRaceSelection = this.handleRaceSelection.bind(this);
+    this.handleExtraRaceChoice = this.handleExtraRaceChoice.bind(this);
     this.handleClassSelection = this.handleClassSelection.bind(this);
     this.handleBackgroundSelection = this.handleBackgroundSelection.bind(this);
     this.handleAlignmentSelection = this.handleAlignmentSelection.bind(this);
@@ -22,10 +23,15 @@ class CharacterCreationView extends Component {
     this.randomizeStats = this.randomizeStats.bind(this);
 
     this.state = {
+      data: {
+        raceData: {}
+      },
       raceSelected: '',
       classSelected: '',
       backgroundSelected: '',
       alignmentSelected: '',
+      extraRaceChoice: '',
+      extraRaceChoiceSource: '',
       playerCharacter: {
         stats: {
           strength: 8,
@@ -48,6 +54,24 @@ class CharacterCreationView extends Component {
         }
       }
     }
+  }
+
+  componentDidMount() {
+    this.fetchRaceData();
+  }
+
+  fetchRaceData() {
+    fetch('http://localhost:8000/races-data')
+    .then(results => {
+      return results.json();
+    })
+    .then(data => {
+      let stateData = this.state.data;
+      data.map((data, i) => {
+        stateData.raceData = {...stateData.raceData, ...data.race_data}
+      })
+      this.setState({ stateData });
+    })
   }
 
   findLowestNumber(numArray) {
@@ -147,8 +171,21 @@ class CharacterCreationView extends Component {
   handleRaceSelection(e) {
     let pc = this.state.playerCharacter;
     pc.race = e.target.value;
+    pc.extraRaceChoice = '';
+    pc.extraRaceChoiceSource = '';
     this.setState({ pc });
     this.setState({ raceSelected: e.target.value });
+  }
+
+  handleExtraRaceChoice(e) {
+    let pc = this.state.playerCharacter;
+    const selectedIndex = e.target.selectedIndex;
+    const source = e.target[selectedIndex].parentElement.getAttribute('source');
+    console.log(source);
+    //If source = 'ability score increase' or 'skill versatility' then add them to the stats and the features instead of the extraRaceChoice
+    pc.extraRaceChoice = e.target.value;
+    pc.extraRaceChoiceSource = source;
+    this.setState({ pc });
   }
 
   handleClassSelection(e) {
@@ -177,15 +214,31 @@ class CharacterCreationView extends Component {
 
   handleCharacterSave() {
     console.log('trigger character save');
+    //format the characterobject before it gets sent out
+    const characterObject = { 
+      characterobject: {
+        race: this.state.playerCharacter.race,
+        class: this.state.playerCharacter.class,
+        background: this.state.playerCharacter.background,
+        alignment: this.state.playerCharacter.alignment,
+        stats: this.state.playerCharacter.stats
+      }
+    }
+
     fetch('http://localhost:8000/', {
-      method: 'POST'
+      method: 'POST',
+      body: JSON.stringify(characterObject),
+      headers: {
+        "Content-Type": "application/json"
+      }
     })
     .then(response => {
-      console.log(response);
+      console.log(response.headers);
     })
   }
 
   render() {
+    console.log(this.state.data.raceData);
     return (
       <div className='character-creation-view'>
         <h1>Character Creator</h1>
@@ -210,8 +263,10 @@ class CharacterCreationView extends Component {
           render={(props) => 
             <RaceSection
               step={1}
+              data={this.state.data}
               pc={this.state.playerCharacter} 
-              raceSelected={this.state.raceSelected} handleRaceSelection={this.handleRaceSelection} 
+              handleRaceSelection={this.handleRaceSelection} 
+              handleExtraRaceChoice={this.handleExtraRaceChoice}
             />}
         />
         <Route 
@@ -220,7 +275,6 @@ class CharacterCreationView extends Component {
             <ClassSection
               step={2}
               pc={this.state.playerCharacter}
-              classSelected={this.state.classSelected} 
               handleSkillSelection={this.handleSkillSelection}
               handleClassSelection={this.handleClassSelection}
               handleLanguageSelection={this.handleLanguageSelection}
@@ -233,7 +287,6 @@ class CharacterCreationView extends Component {
             <BackgroundSection 
               step={3} 
               pc={this.state.playerCharacter}
-              backgroundSelected={this.state.backgroundSelected}
               handleBackgroundSelection={this.handleBackgroundSelection}
               handleLanguageSelection={this.handleLanguageSelection}
             />}
@@ -244,7 +297,6 @@ class CharacterCreationView extends Component {
             <AlignmentSection 
               step={4} 
               pc={this.state.playerCharacter}
-              alignmentSelected={this.state.alignmentSelected}
               handleAlignmentSelection={this.handleAlignmentSelection}
             />}
         />

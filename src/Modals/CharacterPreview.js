@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Races from '../Data/Races.js';
 import Classes from '../Data/Classes.js';
+import Backgrounds from '../Data/Backgrounds.js';
 import Alignments from '../Data/Alignments.js';
 import StatBlock from './StatBlock/StatBlock.js';
 import SkillBlock from './SkillBlock/SkillBlock.js';
@@ -26,6 +27,14 @@ class CharacterPreview extends Component {
     return charClass;
   }
 
+  getBackground() {
+    let background = 'Unknown';
+    if (this.props.pc.background) {
+      background = Backgrounds[this.props.pc.background].name;
+    }
+    return background;
+  }
+
   getAlignment() {
     let alignment = 'Unaligned';
     if (this.props.pc.alignment) {
@@ -37,7 +46,7 @@ class CharacterPreview extends Component {
   render() {
     return (
       <div className='character-preview'>
-        <h2 className='character-preview-title'>Dave the {this.getAlignment()} {this.getRace()}, 1st Level {this.getClass()}</h2>
+        <h2 className='character-preview-title'>Dave the {this.getAlignment()} {this.getBackground()}, 1st Level {this.getRace()} {this.getClass()}</h2>
         <CombatStatsBlock 
           pc={this.props.pc}
         />

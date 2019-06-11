@@ -217,7 +217,7 @@ class ClassSnippet extends Component {
   }
 
   render() {
-    const selectedClass = Classes[this.props.classSelected];
+    const selectedClass = Classes[this.props.pc.class];
     return (
       <div className='snippet'>
         <section className='features-list'>

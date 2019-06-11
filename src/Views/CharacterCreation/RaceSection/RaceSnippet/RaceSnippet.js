@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ExtraChoiceSnippet from './ExtraChoiceSnippet/ExtraChoiceSnippet.js';
-import Race from '../../../../Data/Races.js';
+import Races from '../../../../Data/Races.js';
 import Languages from '../../../../Data/Languages.js';
 
 class RaceSnippet extends Component {
-  constructor(props) {
-    super(props);
-    this.handleExtraChoice = this.handleExtraChoice.bind(this);
-    
-    this.state = {
-    };
-  }
-
   findModifiers(race) { 
     const modifiers = Object.keys(race.statModifiers).map((stat, i) => {
       if (race.statModifiers[stat] !== 0) {
@@ -82,10 +74,14 @@ class RaceSnippet extends Component {
     }
 
     const choices = Object.keys(raceChoices).map((choice, i) => {
+      const choiceOptions = raceChoices[choice].options;
       return (
         <div key={i}>
           <h3>Extra Racial Choice: {raceChoices[choice].name}</h3>
-          <select onChange={this.props.handleExtraChoice}>
+          <select 
+            value={this.props.pc.extraRaceChoice ? this.props.pc.extraRaceChoice : raceChoices[choice].name}
+            source={choice} 
+            onChange={this.props.handleExtraRaceChoice}>
             <option>{raceChoices[choice].name}:</option>
             {this.getExtraOptions(raceChoices[choice].options)}
           </select>
@@ -95,16 +91,9 @@ class RaceSnippet extends Component {
     return choices;
   }
 
-  handleExtraChoice(e) {
-    const race = Race[this.props.race]
-    const choiceVersion = race[e.target.id];
-    const extraChoice = choiceVersion[e.target.value];
-    const stateObj = { [e.target.id]: extraChoice };
-    this.setState( stateObj );
-  }
-
   render() {
-    const selectedRace = Race[this.props.race];
+    const selectedRace = Races[this.props.pc.race];
+    console.log(this.props.pc.race);
     return (
       // change divs into sections inside of 'race-snippet'
       <div className='snippet'>
@@ -141,6 +130,11 @@ class RaceSnippet extends Component {
 
         <div className='extra-choices'>
           {this.findExtraChoices(selectedRace)}
+          {
+            (Races[this.props.pc.race].raceChoices[this.props.pc.extraRaceChoiceSource] !== undefined
+            && this.props.pc.race !== 'halfElf' && this.props.pc.race !== 'human') &&
+              <ExtraChoiceSnippet pc={this.props.pc} />
+          }
         </div>
         <Link to='/character-creation/class'>
           <button className='commit-btn'>Commit</button>

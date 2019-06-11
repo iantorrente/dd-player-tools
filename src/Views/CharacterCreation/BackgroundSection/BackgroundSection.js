@@ -15,11 +15,11 @@ class BackgroundSection extends Component {
   }
 
   render() {
-    const selectedBackground = this.props.backgroundSelected;
+    const selectedBackground = this.props.pc.background;
     return(
       <div className='step-section'>
         <h2 className='cc-step'>Step {this.props.step}: Choose a Background</h2>
-        <select className='background-selection' onChange={this.props.handleBackgroundSelection} value={this.props.backgroundSelected}>
+        <select className='background-selection' onChange={this.props.handleBackgroundSelection} value={this.props.pc.background}>
           <option>Backgrounds:</option>
           {this.getBackgroundOptions()}
         </select>
@@ -27,8 +27,7 @@ class BackgroundSection extends Component {
           (Backgrounds[selectedBackground] !== undefined) ?
             <BackgroundSnippet
               pc={this.props.pc}
-              handleLanguageSelection={this.props.handleLanguageSelection} 
-              backgroundSelected={selectedBackground} 
+              handleLanguageSelection={this.props.handleLanguageSelection}
             />
           :
             <Explanation toExplain='background' />

@@ -12,12 +12,12 @@ const DWARF = {
     'dwarven subrace': {
       name: 'Dwarven Subrace',
       options: {
-        hill: {
+        'hill dwarf': {
           name: 'Hill Dwarf',
           wisMod: 1,
           hpMod: 1
         },
-        mountain: {
+        'mountain dwarf': {
           name: 'Mountain Dwarf',
           strMod: 2,
           proficiencies: ['light armor', 'medium armor']
@@ -25,19 +25,6 @@ const DWARF = {
       }
     }
   },
-  // extraChoices1Name: 'Dwarven Subrace',
-  // extraChoices1: {
-  //   'hill dwarf': {
-  //     name: 'hill dwarf',
-  //     wisMod: 1,
-  //     hpMod: 1
-  //   },
-  //   'mountain dwarf': {
-  //     name: 'mountain dwarf',
-  //     strMod: 2,
-  //     proficiencies: ['light armor', 'medium armor']
-  //   }
-  // }
 }
 
 export default DWARF;

@@ -17,13 +17,13 @@ class AlignmentSection extends Component {
     return(
       <div className='step-section'>
         <h2 className='cc-step'>Step {this.props.step}: Choose Your Alignment</h2>
-        <select className='alignment-selection' onChange={this.props.handleAlignmentSelection} value={this.props.alignmentSelected}>
+        <select className='alignment-selection' onChange={this.props.handleAlignmentSelection} value={this.props.pc.alignment}>
           <option>Alignments:</option>
           {this.findAlignments()}
         </select>
         {
-          (Alignments[this.props.alignmentSelected] !== undefined) ?
-            <AlignmentSnippet alignmentSelected={this.props.alignmentSelected} />
+          (Alignments[this.props.pc.alignment] !== undefined) ?
+            <AlignmentSnippet pc={this.props.pc} />
           :
             <Explanation toExplain='alignment' />
         }
