@@ -7,6 +7,7 @@ import Navigation from '../Navigation/Navigation.js';
 import CharacterPreview from '../Modals/CharacterPreview.js';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+const { API_ENDPOINT } = require('../config.js');
 
 class CharacterCreationView extends Component {
   constructor(props) {
@@ -69,7 +70,8 @@ class CharacterCreationView extends Component {
   }
 
   fetchRaceData() {
-    fetch('http://localhost:8000/api/races-data')
+    console.log(API_ENDPOINT);
+    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/races-data`)
     .then(results => {
       return results.json();
     })
@@ -83,7 +85,7 @@ class CharacterCreationView extends Component {
   }
 
   fetchClassData() {
-    fetch('http://localhost:8000/api/classes-data')
+    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/classes-data`)
     .then(results => {
       return results.json();
     })
@@ -92,13 +94,12 @@ class CharacterCreationView extends Component {
       data.map((data, i) => {
         stateData.classData = {...stateData.classData, ...data.class_data}
       })
-      console.log(stateData);
       this.setState({ stateData })
     })
   }
 
   fetchBackgroundData() {
-    fetch('http://localhost:8000/api/backgrounds-data')
+    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/backgrounds-data`)
     .then(results => {
       return results.json();
     })
@@ -107,13 +108,12 @@ class CharacterCreationView extends Component {
       data.map((data, i) => {
         stateData.backgroundData = {...stateData.backgroundData, ...data.background_data}
       })
-      console.log(stateData);
       this.setState({ stateData })
     })
   }
 
   fetchAlignmentData() {
-    fetch('http://localhost:8000/api/alignments-data')
+    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/alignments-data`)
     .then(results => {
       return results.json();
     })
@@ -122,7 +122,6 @@ class CharacterCreationView extends Component {
       data.map((data, i) => {
         stateData.alignmentData = {...stateData.alignmentData, ...data.alignment_data}
       })
-      console.log(stateData);
       this.setState({ stateData })
     })
   }
