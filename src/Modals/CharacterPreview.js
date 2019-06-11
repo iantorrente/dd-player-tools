@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Races from '../Data/Races.js';
-import Classes from '../Data/Classes.js';
-import Backgrounds from '../Data/Backgrounds.js';
 import Alignments from '../Data/Alignments.js';
 import StatBlock from './StatBlock/StatBlock.js';
 import SkillBlock from './SkillBlock/SkillBlock.js';
@@ -11,31 +8,31 @@ import LanguagesBlock from './LanguagesBlock/LanguagesBlock.js';
 import EquipmentBlock from './EquipmentBlock/EquipmentBlock.js';
 
 class CharacterPreview extends Component {
-  getRace() {
+  getRace(data) {
     let race = 'Raceless';
     if (this.props.pc.race) {
-      race = Races[this.props.pc.race].name;
+      race = data.raceData[this.props.pc.race].name;
     }
     return race;
   }
 
-  getClass() {
+  getClass(data) {
     let charClass = 'Classless';
     if (this.props.pc.class) {
-      charClass = Classes[this.props.pc.class].name;
+      charClass = data.classData[this.props.pc.class].name;
     }
     return charClass;
   }
 
-  getBackground() {
+  getBackground(data) {
     let background = 'Unknown';
     if (this.props.pc.background) {
-      background = Backgrounds[this.props.pc.background].name;
+      background = data.backgroundData[this.props.pc.background].name;
     }
     return background;
   }
 
-  getAlignment() {
+  getAlignment(data) {
     let alignment = 'Unaligned';
     if (this.props.pc.alignment) {
       alignment = Alignments[this.props.pc.alignment].name;
@@ -44,9 +41,10 @@ class CharacterPreview extends Component {
   }
 
   render() {
+    const data = this.props.data;
     return (
       <div className='character-preview'>
-        <h2 className='character-preview-title'>Dave the {this.getAlignment()} {this.getBackground()}, 1st Level {this.getRace()} {this.getClass()}</h2>
+        <h2 className='character-preview-title'>Dave the {this.getAlignment(data)} {this.getBackground(data)}, 1st Level {this.getRace(data)} {this.getClass(data)}</h2>
         <CombatStatsBlock 
           pc={this.props.pc}
         />

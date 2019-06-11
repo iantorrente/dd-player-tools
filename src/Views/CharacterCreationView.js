@@ -26,7 +26,8 @@ class CharacterCreationView extends Component {
     this.state = {
       data: {
         raceData: {},
-        classData: {}
+        classData: {},
+        backgroundData: {}
       },
       raceSelected: '',
       classSelected: '',
@@ -62,6 +63,7 @@ class CharacterCreationView extends Component {
   componentDidMount() {
     this.fetchRaceData();
     this.fetchClassData();
+    this.fetchBackgroundData();
   }
 
   fetchRaceData() {
@@ -87,6 +89,21 @@ class CharacterCreationView extends Component {
       let stateData = this.state.data;
       data.map((data, i) => {
         stateData.classData = {...stateData.classData, ...data.class_data}
+      })
+      console.log(stateData);
+      this.setState({ stateData })
+    })
+  }
+
+  fetchBackgroundData() {
+    fetch('http://localhost:8000/backgrounds-data')
+    .then(results => {
+      return results.json();
+    })
+    .then(data => {
+      let stateData = this.state.data;
+      data.map((data, i) => {
+        stateData.backgroundData = {...stateData.backgroundData, ...data.background_data}
       })
       console.log(stateData);
       this.setState({ stateData })
@@ -278,6 +295,7 @@ class CharacterCreationView extends Component {
           path='/character-creation/character-preview'
           render={(props) => 
             <CharacterPreview
+              data={this.state.data}
               pc={this.state.playerCharacter} 
               getRandomNumbers={this.randomizeStats}
               handleStatIncrease={this.handleStatIncrease} 
@@ -317,6 +335,7 @@ class CharacterCreationView extends Component {
             <BackgroundSection 
               step={3} 
               pc={this.state.playerCharacter}
+              data={this.state.data}
               handleBackgroundSelection={this.handleBackgroundSelection}
               handleLanguageSelection={this.handleLanguageSelection}
             />}
