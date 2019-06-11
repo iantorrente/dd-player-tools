@@ -69,7 +69,7 @@ class CharacterCreationView extends Component {
   }
 
   fetchRaceData() {
-    fetch('http://localhost:8000/races-data')
+    fetch('http://localhost:8000/api/races-data')
     .then(results => {
       return results.json();
     })
@@ -83,7 +83,7 @@ class CharacterCreationView extends Component {
   }
 
   fetchClassData() {
-    fetch('http://localhost:8000/classes-data')
+    fetch('http://localhost:8000/api/classes-data')
     .then(results => {
       return results.json();
     })
@@ -98,7 +98,7 @@ class CharacterCreationView extends Component {
   }
 
   fetchBackgroundData() {
-    fetch('http://localhost:8000/backgrounds-data')
+    fetch('http://localhost:8000/api/backgrounds-data')
     .then(results => {
       return results.json();
     })
@@ -113,7 +113,7 @@ class CharacterCreationView extends Component {
   }
 
   fetchAlignmentData() {
-    fetch('http://localhost:8000/alignments-data')
+    fetch('http://localhost:8000/api/alignments-data')
     .then(results => {
       return results.json();
     })
