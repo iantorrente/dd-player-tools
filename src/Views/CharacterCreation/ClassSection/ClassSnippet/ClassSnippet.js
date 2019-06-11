@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import Classes from '../../../../Data/Classes.js';
 import Languages from '../../../../Data/Languages.js';
 
 class ClassSnippet extends Component {
   getClassOptions(selectedClass, option) {
     const classOptions = selectedClass.classOptions;
     let returnOptions = [];
+    console.log(option);
 
     if (option === 'extra language') {
       returnOptions = Object.keys(Languages).map((language, i) => {
@@ -29,6 +29,7 @@ class ClassSnippet extends Component {
   findClassOptions(selectedClass) {
     let returnChoices = [];
     let choiceCount = 0;
+    console.log(selectedClass.classOptions);
 
     if (selectedClass.classOptions && selectedClass.classOptions['extra language'] !== undefined) {
       choiceCount = selectedClass.classOptions['extra language'].amount;
@@ -61,7 +62,7 @@ class ClassSnippet extends Component {
           </div>
         )
       })
-    }
+    } 
     
     return returnChoices;
   }
@@ -217,7 +218,7 @@ class ClassSnippet extends Component {
   }
 
   render() {
-    const selectedClass = Classes[this.props.pc.class];
+    const selectedClass = this.props.data.classData[this.props.pc.class];
     return (
       <div className='snippet'>
         <section className='features-list'>

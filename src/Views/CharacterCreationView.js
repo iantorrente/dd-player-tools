@@ -19,12 +19,14 @@ class CharacterCreationView extends Component {
     this.handleSkillSelection = this.handleSkillSelection.bind(this);
     this.handleLanguageSelection = this.handleLanguageSelection.bind(this);
     this.handleEquipmentSelection = this.handleEquipmentSelection.bind(this);
+    this.handleProficiencySelection = this.handleProficiencySelection.bind(this);
     this.handleCharacterSave = this.handleCharacterSave.bind(this);
     this.randomizeStats = this.randomizeStats.bind(this);
 
     this.state = {
       data: {
-        raceData: {}
+        raceData: {},
+        classData: {}
       },
       raceSelected: '',
       classSelected: '',
@@ -42,6 +44,7 @@ class CharacterCreationView extends Component {
           charisma: 8
         },
         skills: [],
+        classProficiencies: [],
         classExtraLanguages: [],
         backgroundLanguages: [],
         equipmentChoices: {
@@ -58,6 +61,7 @@ class CharacterCreationView extends Component {
 
   componentDidMount() {
     this.fetchRaceData();
+    this.fetchClassData();
   }
 
   fetchRaceData() {
@@ -71,6 +75,21 @@ class CharacterCreationView extends Component {
         stateData.raceData = {...stateData.raceData, ...data.race_data}
       })
       this.setState({ stateData });
+    })
+  }
+
+  fetchClassData() {
+    fetch('http://localhost:8000/classes-data')
+    .then(results => {
+      return results.json();
+    })
+    .then(data => {
+      let stateData = this.state.data;
+      data.map((data, i) => {
+        stateData.classData = {...stateData.classData, ...data.class_data}
+      })
+      console.log(stateData);
+      this.setState({ stateData })
     })
   }
 
@@ -168,6 +187,15 @@ class CharacterCreationView extends Component {
     console.log(this.state.playerCharacter);
   }
 
+  handleProficiencySelection(e) {
+    let pc = this.state.playerCharacter;
+    const selectedIndex = e.target.selectedIndex;
+    const optionIndex = e.target[selectedIndex].parentElement.getAttribute('index');
+
+    pc.classProficiencies.splice(optionIndex, 1, e.target.value);
+    this.setState({ pc });
+  }
+
   handleRaceSelection(e) {
     let pc = this.state.playerCharacter;
     pc.race = e.target.value;
@@ -238,7 +266,7 @@ class CharacterCreationView extends Component {
   }
 
   render() {
-    console.log(this.state.data.raceData);
+    console.log(this.state.data);
     return (
       <div className='character-creation-view'>
         <h1>Character Creator</h1>
@@ -274,7 +302,9 @@ class CharacterCreationView extends Component {
           render={(props) => 
             <ClassSection
               step={2}
+              data={this.state.data}
               pc={this.state.playerCharacter}
+              handleProficiencySelection={this.handleProficiencySelection}
               handleSkillSelection={this.handleSkillSelection}
               handleClassSelection={this.handleClassSelection}
               handleLanguageSelection={this.handleLanguageSelection}

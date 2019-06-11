@@ -4,17 +4,19 @@ import ClassSnippet from './ClassSnippet/ClassSnippet.js';
 import Explanation from '../Explanation.js';
 
 class ClassSection extends Component {
-  getClassOptions() {
-    const classOptions = Object.keys(Classes).map(function(key, i) {
+  getClassOptions(data) {
+    const classData = data;
+    const classOptions = Object.keys(classData).map(function(key, i) {
       return (
-        <option key={i} value={key}>{Classes[key].name}</option>
+        <option key={i} value={key}>{classData[key].name}</option>
       )
     });
     return classOptions;
   }
 
   render() {
-    const classOptions = this.getClassOptions();
+    const classData = this.props.data.classData;
+    const classOptions = this.getClassOptions(classData);
     
     return(
       <div className='step-section'>
@@ -24,9 +26,11 @@ class ClassSection extends Component {
           {classOptions}
         </select>
         {
-          (Classes[this.props.pc.class] !== undefined) ?
+          (classData[this.props.pc.class] !== undefined) ?
             <ClassSnippet 
               pc={this.props.pc}
+              data={this.props.data}
+              handleProficiencySelection={this.props.handleProficiencySelection}
               handleSkillSelection={this.props.handleSkillSelection}
               handleLanguageSelection={this.props.handleLanguageSelection}
               handleEquipmentSelection={this.props.handleEquipmentSelection}
