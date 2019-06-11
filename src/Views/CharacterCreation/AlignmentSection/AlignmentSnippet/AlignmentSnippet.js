@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Alignments from '../../../../Data/Alignments.js';
 
 class AlignmentSnippet extends Component {
   findAlignmentExamples(alignment) {
@@ -13,17 +12,18 @@ class AlignmentSnippet extends Component {
   }
 
   render() {
+    const alignmentData = this.props.data.alignmentData;
     const alignment = this.props.pc.alignment;
     return (
       <div className='alignment-snippet snippet'>
         <section>
           <h3>Description:</h3>
-          <p>{Alignments[alignment].description}</p>
+          <p>{alignmentData[alignment].description}</p>
         </section>
 
         <section>
           <h3>Examples:</h3>
-          {this.findAlignmentExamples(Alignments[alignment])}
+          {this.findAlignmentExamples(alignmentData[alignment])}
         </section>
         <Link to='/character-creation/character-preview'> 
           <button className='commit-btn'>Finalize</button>

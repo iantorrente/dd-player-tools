@@ -27,7 +27,8 @@ class CharacterCreationView extends Component {
       data: {
         raceData: {},
         classData: {},
-        backgroundData: {}
+        backgroundData: {},
+        alignmentData: {}
       },
       raceSelected: '',
       classSelected: '',
@@ -64,6 +65,7 @@ class CharacterCreationView extends Component {
     this.fetchRaceData();
     this.fetchClassData();
     this.fetchBackgroundData();
+    this.fetchAlignmentData();
   }
 
   fetchRaceData() {
@@ -104,6 +106,21 @@ class CharacterCreationView extends Component {
       let stateData = this.state.data;
       data.map((data, i) => {
         stateData.backgroundData = {...stateData.backgroundData, ...data.background_data}
+      })
+      console.log(stateData);
+      this.setState({ stateData })
+    })
+  }
+
+  fetchAlignmentData() {
+    fetch('http://localhost:8000/alignments-data')
+    .then(results => {
+      return results.json();
+    })
+    .then(data => {
+      let stateData = this.state.data;
+      data.map((data, i) => {
+        stateData.alignmentData = {...stateData.alignmentData, ...data.alignment_data}
       })
       console.log(stateData);
       this.setState({ stateData })
@@ -346,6 +363,7 @@ class CharacterCreationView extends Component {
             <AlignmentSection 
               step={4} 
               pc={this.state.playerCharacter}
+              data={this.state.data}
               handleAlignmentSelection={this.handleAlignmentSelection}
             />}
         />

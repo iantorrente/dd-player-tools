@@ -35,7 +35,7 @@ class CharacterPreview extends Component {
   getAlignment(data) {
     let alignment = 'Unaligned';
     if (this.props.pc.alignment) {
-      alignment = Alignments[this.props.pc.alignment].name;
+      alignment = data.alignmentData[this.props.pc.alignment].name;
     }
     return alignment;
   }
