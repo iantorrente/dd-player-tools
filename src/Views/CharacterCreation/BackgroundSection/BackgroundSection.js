@@ -20,7 +20,7 @@ class BackgroundSection extends Component {
     return(
       <div className='step-section'>
         <h2 className='cc-step'>Step {this.props.step}: Choose a Background</h2>
-        <select className='background-selection' onChange={this.props.handleBackgroundSelection} value={this.props.pc.background}>
+        <select className='selection' onChange={this.props.handleBackgroundSelection} value={this.props.pc.background}>
           <option>Backgrounds:</option>
           {this.getBackgroundOptions(backgroundData)}
         </select>

@@ -7,7 +7,6 @@ import Navigation from '../Navigation/Navigation.js';
 import CharacterPreview from '../Modals/CharacterPreview.js';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-const { API_ENDPOINT } = require('../config.js');
 
 class CharacterCreationView extends Component {
   constructor(props) {
@@ -63,14 +62,22 @@ class CharacterCreationView extends Component {
   }
 
   componentDidMount() {
-    this.fetchRaceData();
-    this.fetchClassData();
-    this.fetchBackgroundData();
-    this.fetchAlignmentData();
+    const environment = 'development';
+    let API_ENDPOINT = '';
+    if (environment === 'development') {
+      API_ENDPOINT = 'http://localhost:8000/';
+    } else if (environment === 'production') {
+      API_ENDPOINT = 'https://afternoon-ocean-86123.herokuapp.com/';
+    }
+    this.fetchRaceData(API_ENDPOINT);
+    this.fetchClassData(API_ENDPOINT);
+    this.fetchBackgroundData(API_ENDPOINT);
+    this.fetchAlignmentData(API_ENDPOINT);
   }
 
-  fetchRaceData() {
-    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/races-data`)
+  fetchRaceData(API_ENDPOINT) {
+    console.log(API_ENDPOINT);
+    fetch(`${API_ENDPOINT}api/races-data`)
     .then(results => {
       return results.json();
     })
@@ -83,8 +90,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchClassData() {
-    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/classes-data`)
+  fetchClassData(API_ENDPOINT) {
+    fetch(`${API_ENDPOINT}api/classes-data`)
     .then(results => {
       return results.json();
     })
@@ -97,8 +104,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchBackgroundData() {
-    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/backgrounds-data`)
+  fetchBackgroundData(API_ENDPOINT) {
+    fetch(`${API_ENDPOINT}api/backgrounds-data`)
     .then(results => {
       return results.json();
     })
@@ -111,8 +118,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchAlignmentData() {
-    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/alignments-data`)
+  fetchAlignmentData(API_ENDPOINT) {
+    fetch(`${API_ENDPOINT}api/alignments-data`)
     .then(results => {
       return results.json();
     })
@@ -159,25 +166,6 @@ class CharacterCreationView extends Component {
       this.setState({ pc });
     })
   }
-
-  // NOT NEEDED NOW THAT STAT RANDOMIZATION IS IMPLEMENTED
-  // handleStatIncrease(stat) {
-  //   let pc = this.state.playerCharacter;
-  //   if (pc.statPoints === 0) {
-  //     alert('No more avaiable points to distribute');
-  //   } else {
-  //     pc.statPoints -= 1;
-  //     pc.stats[stat] += 1;
-  //     this.setState({ pc });
-  //   }
-  // }
-
-  // handleStatDecrease(stat) {
-  //   let pc = this.state.playerCharacter;
-  //   pc.statPoints += 1;
-  //   pc.stats[stat] -= 1;
-  //   this.setState({ pc });
-  // }
 
   handleEquipmentSelection(e) {
     let pc = this.state.playerCharacter;
@@ -265,30 +253,6 @@ class CharacterCreationView extends Component {
     this.setState({ pc });
     this.setState({ alignmentSelected: e.target.value });
   }
-
-  // handleCharacterSave() {
-  //   //format the characterobject before it gets sent out
-  //   const characterObject = { 
-  //     characterobject: {
-  //       race: this.state.playerCharacter.race,
-  //       class: this.state.playerCharacter.class,
-  //       background: this.state.playerCharacter.background,
-  //       alignment: this.state.playerCharacter.alignment,
-  //       stats: this.state.playerCharacter.stats
-  //     }
-  //   }
-
-  //   fetch('http://localhost:8000/', {
-  //     method: 'POST',
-  //     body: JSON.stringify(characterObject),
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
-  //   .then(response => {
-  //     console.log(response.headers);
-  //   })
-  // }
 
   render() {
     return (

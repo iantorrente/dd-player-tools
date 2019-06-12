@@ -1,0 +1,44 @@
+.landing-section div {
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+  width: 75%;
+}
+
+.landing-header {
+  background-color: rgb(63, 63, 63);
+  color: rgb(255, 255, 255);
+  margin: 4%;
+  padding: 2%;
+}
+
+.landing-section h3 {
+  background-color: rgb(63, 63, 63);
+  color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+
+.landing-section {
+  background-color: rgb(226, 226, 226);
+  padding: 4%;
+}
+
+.landing-section:nth-child(even) {
+  background-color: rgb(194, 194, 194);
+}
+
+.character-creation-btn {
+  background-color: white;
+  border: 1px solid white;
+  font-size: 20px;
+  width: 200px;
+  height: 35px;
+}
+
+.character-creation-btn:hover {
+  background-color: rgb(182, 182, 182);
+  border: 1px solid rgb(182, 182, 182);
+  cursor: pointer;
+}
