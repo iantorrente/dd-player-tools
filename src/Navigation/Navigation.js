@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 class Navigation extends Component {
   getNavClassName(navBtn, state) {
     const source = state.componentData.activeTab;
-    console.log(state.playerCharacter[source]);
     if (navBtn === source) {
       return 'nav-btn active-tab'
     } else {

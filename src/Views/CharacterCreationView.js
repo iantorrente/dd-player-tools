@@ -253,7 +253,6 @@ class CharacterCreationView extends Component {
 
   setActiveTab(e) {
     let componentData = this.state.componentData;
-    const selectedIndex = e.target.selectedIndex;
     const source = e.target.getAttribute('source');
     componentData.activeTab = source;
     this.setState({ componentData });
