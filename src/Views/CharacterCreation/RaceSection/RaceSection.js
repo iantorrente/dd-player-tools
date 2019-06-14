@@ -25,7 +25,7 @@ class RaceSection extends Component {
         </select>
         {
           (raceData[this.props.pc.race] !== undefined) ?
-            <RaceSnippet handleExtraRaceChoice={this.props.handleExtraRaceChoice} pc={this.props.pc} />
+            <RaceSnippet data={this.props.data} handleExtraRaceChoice={this.props.handleExtraRaceChoice} pc={this.props.pc} />
             :
             <Explanation toExplain='race'/>
         }

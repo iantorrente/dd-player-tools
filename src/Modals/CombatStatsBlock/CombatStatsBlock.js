@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ACItem from './ACItem.js';
 import InitiativeItem from './InitiativeItem.js';
 import SpeedItem from './SpeedItem.js';
 import HPItem from './HPItem.js';

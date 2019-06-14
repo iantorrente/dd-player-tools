@@ -20,10 +20,14 @@ class CharacterCreationView extends Component {
     this.handleLanguageSelection = this.handleLanguageSelection.bind(this);
     this.handleEquipmentSelection = this.handleEquipmentSelection.bind(this);
     this.handleProficiencySelection = this.handleProficiencySelection.bind(this);
+    this.setActiveTab = this.setActiveTab.bind(this);
     // this.handleCharacterSave = this.handleCharacterSave.bind(this);
     this.randomizeStats = this.randomizeStats.bind(this);
 
     this.state = {
+      componentData: {
+        activeTab: 'race'
+      },
       data: {
         raceData: {},
         classData: {},
@@ -62,22 +66,15 @@ class CharacterCreationView extends Component {
   }
 
   componentDidMount() {
-    const environment = 'development';
-    let API_ENDPOINT = '';
-    if (environment === 'development') {
-      API_ENDPOINT = 'http://localhost:8000/';
-    } else if (environment === 'production') {
-      API_ENDPOINT = 'https://afternoon-ocean-86123.herokuapp.com/';
-    }
-    this.fetchRaceData(API_ENDPOINT);
-    this.fetchClassData(API_ENDPOINT);
-    this.fetchBackgroundData(API_ENDPOINT);
-    this.fetchAlignmentData(API_ENDPOINT);
+    const { API_BASE_URL } = require('../config.js');
+    this.fetchRaceData(API_BASE_URL);
+    this.fetchClassData(API_BASE_URL);
+    this.fetchBackgroundData(API_BASE_URL);
+    this.fetchAlignmentData(API_BASE_URL);
   }
 
-  fetchRaceData(API_ENDPOINT) {
-    console.log(API_ENDPOINT);
-    fetch(`${API_ENDPOINT}api/races-data`)
+  fetchRaceData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/races-data`)
     .then(results => {
       return results.json();
     })
@@ -90,8 +87,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchClassData(API_ENDPOINT) {
-    fetch(`${API_ENDPOINT}api/classes-data`)
+  fetchClassData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/classes-data`)
     .then(results => {
       return results.json();
     })
@@ -104,8 +101,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchBackgroundData(API_ENDPOINT) {
-    fetch(`${API_ENDPOINT}api/backgrounds-data`)
+  fetchBackgroundData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/backgrounds-data`)
     .then(results => {
       return results.json();
     })
@@ -118,8 +115,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchAlignmentData(API_ENDPOINT) {
-    fetch(`${API_ENDPOINT}api/alignments-data`)
+  fetchAlignmentData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/alignments-data`)
     .then(results => {
       return results.json();
     })
@@ -254,14 +251,21 @@ class CharacterCreationView extends Component {
     this.setState({ alignmentSelected: e.target.value });
   }
 
+  setActiveTab(e) {
+    let componentData = this.state.componentData;
+    const selectedIndex = e.target.selectedIndex;
+    const source = e.target.getAttribute('source');
+    componentData.activeTab = source;
+    this.setState({ componentData });
+  }
+
   render() {
     return (
       <div className='character-creation-view'>
         <h1>Character Creator</h1>
-        <Link to='/character-creation/character-preview'>
-          <button className='character-preview-btn'>Preview Character</button>
-        </Link>
-        <Navigation />
+        <Navigation 
+          setActiveTab={this.setActiveTab}
+          state={this.state} />
         <Route 
           path='/character-creation/character-preview'
           render={(props) => 

@@ -1,5 +1,6 @@
 @import './landing-mobile-style.css';
 @import './navigation-mobile-style.css';
+@import './section-mobile-style.css';
 @import './character-preview-mobile-style.css';
 
 body {
@@ -18,35 +19,12 @@ code {
     monospace;
 }
 
-.selection {
-  text-align-last: center;
-  font-size: 20px;
-  width: 80%;
-  height: 30px;
+.character-creation-view {
+  background-color: rgb(126, 0, 0);
 }
 
-.snippet {
-  background-color: white;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 2%;
-  padding: 2%;
-  width: 80%;
-}
-
-.snippet h3 {
-  background-color: rgb(194, 194, 194);
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-.extra-choice-snippet {
-  margin-right: auto;
-  margin-left: auto;
-  width: 80%;
-}
-
-.extra-choice-snippet h3 {
-  background-color: white;
+.character-creation-view h1 {
+  color: white;
+  margin-top: 0px;
+  padding-top: 3%;
 }

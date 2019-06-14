@@ -1,19 +1,36 @@
+.nav-bar {
+  width: 100%;
+  margin-bottom: -5%;
+}
+
 .nav-link {
   text-decoration: none;
   color: black;
 }
 
 .nav-btn {
-  background-color: white;
-  border: 1px solid white;
+  background-color: rgb(73, 73, 73);
+  border: 1px solid rgb(73, 73, 73);
+  border-radius: 15px 15px 0px 0px;
+  color: white;
   cursor: pointer;
   font-size: 14px;
   width: 24%;
-  height: 25px;
+  height: 50px;
 }
 
 .nav-btn:focus {
-  background-color: rgb(196, 196, 196);
+  outline: 0;
+}
+
+.active-tab {
+  background-color: white;
+  border: 1px solid white;
+  color: black;
+}
+
+.complete {
+  color: green;
 }
 
 .nav-link:nth-child(even) {
@@ -32,4 +49,29 @@
 
 .character-preview-btn:focus {
   background-color: rgb(196, 196, 196);
+}
+
+.indicator {
+  display: block;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  width: 50%;
+  height: 2px;
+}
+
+.indicator-complete {
+  display: block;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgb(16, 197, 0);
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  width: 50%;
+  height: 2px;
 }
