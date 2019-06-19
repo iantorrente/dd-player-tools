@@ -1,8 +1,8 @@
-@import './landing-mobile-style.css';
-@import './navigation-mobile-style.css';
-@import './section-mobile-style.css';
-@import './character-preview-mobile-style.css';
-@media only screen and (max-width: 414px) {
+@import './landing-desktop-style.css';
+@import './navigation-desktop-style.css';
+@import './section-desktop-style.css';
+@import './character-preview-desktop-style.css';
+@media only screen and (min-width: 415px) {
   body {
     background-color: rgb(126, 0, 0);
     text-align: center;
@@ -20,6 +20,10 @@
     margin: 0;
     padding: 0;
     height: 100%;
+    background-image: url('http://getwallpapers.com/wallpaper/full/3/f/1/59952.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
   }
   
   code {
@@ -33,10 +37,9 @@
   
   .character-creation-view {
     position: relative;
-    background-color: rgb(126, 0, 0);
     margin-right: auto;
     margin-left: auto;
-    width: 100%;
+    width: 65%;
     height: 100%;
   }
   

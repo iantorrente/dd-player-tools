@@ -1,6 +1,6 @@
 .nav-bar {
   position: absolute;
-  top: 101px;
+  top: 100px;
   width: 100%;
 }
 
@@ -10,8 +10,8 @@
 }
 
 .nav-btn {
-  background-color: rgb(90, 90, 90);
-  border: 1px solid rgb(90, 90, 90);
+  background-color: rgb(90, 90, 90, 0.829);
+  border: 0px solid rgb(90, 90, 90, 0.829);
   border-radius: 3px 15px 0px 0px;
   color: white;
   cursor: pointer;
@@ -25,9 +25,10 @@
 }
 
 .active-tab {
-  background-color: rgb(163, 163, 163);
-  border: 1px solid rgb(163, 163, 163);
+  background-color: rgb(163, 163, 163, 0.829);
+  border: 0px solid rgb(163, 163, 163);
   color: black;
+  font-weight: 700;
 }
 
 .complete {
@@ -41,8 +42,6 @@
 
 .character-preview-nav {
   position: fixed;
-  margin-right: auto;
-  margin-left: auto;
   width: 100%;
   height: 50px;
   top: 0px;
@@ -55,8 +54,8 @@
   border: 1px solid rgb(187, 187, 187);
   border-radius: 0px 0px 15px 15px;
   cursor: pointer;
-  font-size: 18px;
-  width: 65%;
+  font-size: 20px;
+  width: 20%;
   height: 50px;
 }
 
