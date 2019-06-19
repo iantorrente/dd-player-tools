@@ -28,13 +28,7 @@ class Navigation extends Component {
   render() {
     const state = this.props.state;
     return(
-      <div>
-        <div>
-          <Link onClick={this.props.setActiveTab} to='/character-creation/character-preview'>
-            <button source='character-preview'  className='character-preview-btn'>Preview Character</button>
-          </Link>
-        </div>
-        <div className='nav-bar'>
+      <div className='nav-bar'>
           <Link onClick={this.props.setActiveTab} className='nav-link' to='/character-creation/race'>
             <button source='race' className={this.getNavClassName('race', state)}>
               Race
@@ -59,7 +53,6 @@ class Navigation extends Component {
               <span className={this.handleIndicator('alignment', state)}></span>
             </button>
           </Link>
-        </div>
       </div>
     )
   }

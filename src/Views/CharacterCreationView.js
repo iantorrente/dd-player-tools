@@ -261,10 +261,10 @@ class CharacterCreationView extends Component {
   render() {
     return (
       <div className='character-creation-view'>
-        <h1>Character Creator</h1>
         <Navigation 
           setActiveTab={this.setActiveTab}
-          state={this.state} />
+          state={this.state} 
+        />
         <Route 
           path='/character-creation/character-preview'
           render={(props) => 
@@ -324,6 +324,11 @@ class CharacterCreationView extends Component {
               handleAlignmentSelection={this.handleAlignmentSelection}
             />}
         />
+        <div className='character-preview-nav'>
+          <Link onClick={this.props.setActiveTab} to='/character-creation/character-preview'>
+            <button source='character-preview'  className='character-preview-btn'>Preview Character</button>
+          </Link>
+        </div>
       </div>
     );
   }

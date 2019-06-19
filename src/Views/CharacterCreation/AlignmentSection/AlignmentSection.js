@@ -17,7 +17,6 @@ class AlignmentSection extends Component {
     const alignmentData = this.props.data.alignmentData;
     return(
       <div className='step-section'>
-        <h2 className='cc-step'>Step {this.props.step}: Choose Your Alignment</h2>
         <select className='selection' onChange={this.props.handleAlignmentSelection} value={this.props.pc.alignment}>
           <option>Alignments:</option>
           {this.findAlignments(alignmentData)}

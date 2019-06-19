@@ -1,24 +1,14 @@
 .character-preview {
   background-color: rgb(145, 145, 145);
+  top: 150px;
+  position: absolute;
 }
 
 .character-preview-title {
-  background-color: rgb(73, 73, 73);
+  background-color: rgb(90, 90, 90);
   color: white;
   padding: 3%;
-}
-
-.character-preview-btn {
-  background-color: white;
-  border: 1px solid black;
-  cursor: pointer;
-  margin-bottom: 4%;
-  width: 150px;
-  height: 35px;
-}
-
-.character-preview-btn:focus {
-  background-color: rgb(196, 196, 196);
+  margin-top: 0px;
 }
 
 .block {

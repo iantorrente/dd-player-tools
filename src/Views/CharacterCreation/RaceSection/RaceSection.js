@@ -18,7 +18,6 @@ class RaceSection extends Component {
     const raceOptions = this.getRaceOptions(raceData);
     return(
       <div className='step-section'>
-        <h2 className='cc-step'>Step {this.props.step}: Choose a Race</h2>
         <select className='selection' onChange={this.props.handleRaceSelection} value={this.props.pc.race}>
           <option>Races:</option>
           {raceOptions}
