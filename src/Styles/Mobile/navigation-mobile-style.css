@@ -1,0 +1,93 @@
+.nav-bar {
+  position: absolute;
+  top: 101px;
+  width: 100%;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-btn {
+  background-color: rgb(90, 90, 90);
+  border: 1px solid rgb(90, 90, 90);
+  border-radius: 3px 15px 0px 0px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  width: 24%;
+  height: 50px;
+}
+
+.nav-btn:focus {
+  outline: 0;
+}
+
+.active-tab {
+  background-color: rgb(163, 163, 163);
+  border: 1px solid rgb(163, 163, 163);
+  color: black;
+}
+
+.complete {
+  color: green;
+}
+
+.nav-link:nth-child(even) {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.character-preview-nav {
+  position: fixed;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  height: 50px;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.character-preview-btn {
+  background-color: rgb(204, 204, 204);
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 0px 0px 15px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 65%;
+  height: 50px;
+}
+
+.character-preview-btn:focus {
+  background-color: rgb(196, 196, 196);
+}
+
+.indicator {
+  display: block;
+  visibility: hidden;
+  pointer-events: none;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  width: 50%;
+  height: 2px;
+}
+
+.indicator-complete {
+  display: block;
+  pointer-events: none;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgb(16, 197, 0);
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  width: 50%;
+  height: 2px;
+}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Alignments from '../Data/Alignments.js';
 import StatBlock from './StatBlock/StatBlock.js';
 import SkillBlock from './SkillBlock/SkillBlock.js';
 import CombatStatsBlock from './CombatStatsBlock/CombatStatsBlock.js';
