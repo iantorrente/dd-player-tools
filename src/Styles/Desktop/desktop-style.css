@@ -34,6 +34,12 @@
     font-family: 'Montserrat', sans-serif;
   }
   
+  .landing {
+    width: 65%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   .character-creation-view {
     position: relative;
     margin-right: auto;
