@@ -7,7 +7,6 @@ import Navigation from '../Navigation/Navigation.js';
 import CharacterPreview from '../Modals/CharacterPreview.js';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-const { API_ENDPOINT } = require('../config.js');
 
 class CharacterCreationView extends Component {
   constructor(props) {
@@ -21,10 +20,14 @@ class CharacterCreationView extends Component {
     this.handleLanguageSelection = this.handleLanguageSelection.bind(this);
     this.handleEquipmentSelection = this.handleEquipmentSelection.bind(this);
     this.handleProficiencySelection = this.handleProficiencySelection.bind(this);
+    this.setActiveTab = this.setActiveTab.bind(this);
     // this.handleCharacterSave = this.handleCharacterSave.bind(this);
     this.randomizeStats = this.randomizeStats.bind(this);
 
     this.state = {
+      componentData: {
+        activeTab: 'race'
+      },
       data: {
         raceData: {},
         classData: {},
@@ -63,14 +66,15 @@ class CharacterCreationView extends Component {
   }
 
   componentDidMount() {
-    this.fetchRaceData();
-    this.fetchClassData();
-    this.fetchBackgroundData();
-    this.fetchAlignmentData();
+    const { API_BASE_URL } = require('../config.js');
+    this.fetchRaceData(API_BASE_URL);
+    this.fetchClassData(API_BASE_URL);
+    this.fetchBackgroundData(API_BASE_URL);
+    this.fetchAlignmentData(API_BASE_URL);
   }
 
-  fetchRaceData() {
-    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/races-data`)
+  fetchRaceData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/races-data`)
     .then(results => {
       return results.json();
     })
@@ -83,8 +87,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchClassData() {
-    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/classes-data`)
+  fetchClassData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/classes-data`)
     .then(results => {
       return results.json();
     })
@@ -97,8 +101,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchBackgroundData() {
-    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/backgrounds-data`)
+  fetchBackgroundData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/backgrounds-data`)
     .then(results => {
       return results.json();
     })
@@ -111,8 +115,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchAlignmentData() {
-    fetch(`https://afternoon-ocean-86123.herokuapp.com/api/alignments-data`)
+  fetchAlignmentData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/alignments-data`)
     .then(results => {
       return results.json();
     })
@@ -159,25 +163,6 @@ class CharacterCreationView extends Component {
       this.setState({ pc });
     })
   }
-
-  // NOT NEEDED NOW THAT STAT RANDOMIZATION IS IMPLEMENTED
-  // handleStatIncrease(stat) {
-  //   let pc = this.state.playerCharacter;
-  //   if (pc.statPoints === 0) {
-  //     alert('No more avaiable points to distribute');
-  //   } else {
-  //     pc.statPoints -= 1;
-  //     pc.stats[stat] += 1;
-  //     this.setState({ pc });
-  //   }
-  // }
-
-  // handleStatDecrease(stat) {
-  //   let pc = this.state.playerCharacter;
-  //   pc.statPoints += 1;
-  //   pc.stats[stat] -= 1;
-  //   this.setState({ pc });
-  // }
 
   handleEquipmentSelection(e) {
     let pc = this.state.playerCharacter;
@@ -266,38 +251,20 @@ class CharacterCreationView extends Component {
     this.setState({ alignmentSelected: e.target.value });
   }
 
-  // handleCharacterSave() {
-  //   //format the characterobject before it gets sent out
-  //   const characterObject = { 
-  //     characterobject: {
-  //       race: this.state.playerCharacter.race,
-  //       class: this.state.playerCharacter.class,
-  //       background: this.state.playerCharacter.background,
-  //       alignment: this.state.playerCharacter.alignment,
-  //       stats: this.state.playerCharacter.stats
-  //     }
-  //   }
-
-  //   fetch('http://localhost:8000/', {
-  //     method: 'POST',
-  //     body: JSON.stringify(characterObject),
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
-  //   .then(response => {
-  //     console.log(response.headers);
-  //   })
-  // }
+  setActiveTab(e) {
+    let componentData = this.state.componentData;
+    const source = e.target.getAttribute('source');
+    componentData.activeTab = source;
+    this.setState({ componentData });
+  }
 
   render() {
     return (
       <div className='character-creation-view'>
-        <h1>Character Creator</h1>
-        <Link to='/character-creation/character-preview'>
-          <button className='character-preview-btn'>Preview Character</button>
-        </Link>
-        <Navigation />
+        <Navigation 
+          setActiveTab={this.setActiveTab}
+          state={this.state} 
+        />
         <Route 
           path='/character-creation/character-preview'
           render={(props) => 
@@ -357,6 +324,11 @@ class CharacterCreationView extends Component {
               handleAlignmentSelection={this.handleAlignmentSelection}
             />}
         />
+        <div className='character-preview-nav'>
+          <Link onClick={this.props.setActiveTab} to='/character-creation/character-preview'>
+            <button source='character-preview'  className='character-preview-btn'>Preview Character</button>
+          </Link>
+        </div>
       </div>
     );
   }

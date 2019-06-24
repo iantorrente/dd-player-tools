@@ -18,14 +18,13 @@ class RaceSection extends Component {
     const raceOptions = this.getRaceOptions(raceData);
     return(
       <div className='step-section'>
-        <h2 className='cc-step'>Step {this.props.step}: Choose a Race</h2>
-        <select className='race-selection' onChange={this.props.handleRaceSelection} value={this.props.pc.race}>
+        <select className='selection' onChange={this.props.handleRaceSelection} value={this.props.pc.race}>
           <option>Races:</option>
           {raceOptions}
         </select>
         {
           (raceData[this.props.pc.race] !== undefined) ?
-            <RaceSnippet handleExtraRaceChoice={this.props.handleExtraRaceChoice} pc={this.props.pc} />
+            <RaceSnippet data={this.props.data} handleExtraRaceChoice={this.props.handleExtraRaceChoice} pc={this.props.pc} />
             :
             <Explanation toExplain='race'/>
         }

@@ -1,0 +1,48 @@
+.selection {
+  background-color: rgb(221, 221, 221);
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 5px 5px 5px 5px;
+  text-align-last: center;
+  outline: 0;
+  font-size: 20px;
+  margin-top: 5%;
+  width: 84%;
+  height: 30px;
+}
+
+.step-section {
+  /* background-color: rgb(239, 229, 213); */
+  background-color: rgb(163, 163, 163);
+  position: absolute;
+  padding-bottom: 5%;
+  width: 100%;
+  top: 150px;
+}
+
+.snippet {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 5px 5px 5px 5px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2%;
+  padding: 2%;
+  width: 80%;
+}
+
+.snippet h3 {
+  background-color: rgb(194, 194, 194);
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.extra-choice-snippet {
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+}
+
+.extra-choice-snippet h3 {
+  background-color: white;
+}

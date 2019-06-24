@@ -45,8 +45,11 @@ class Landing extends Component {
               <li>Begin creating a character by pressing 'Create A Character'</li>
               <li>Select a <b>Race</b>.</li> 
               <li>Most classes have a <b>Racial Choice</b>, be sure to choose one before moving on.</li>
-              <li>When you're satisfied with it, press the 'Commit' button which will take you to the next step.</li>
+              <li>When you're satisfied, press the 'Next' button which will take you to the next step.</li>
               <li>Select a <b>Class</b>.</li>
+              <li>With each class you'll get to choose <b>Skills</b> to be proficient in, be sure to make your options before moving on.</li>
+              <li>You will also be able to choose starting equipment, as well as extra <b>Class Options</b> if the class has them available</li>
+              <li>When you're satisfied, press the 'Next' button which will take you to the next step.</li>
               <li></li>
             </ol>
           </div>
@@ -56,6 +59,7 @@ class Landing extends Component {
           <p>The D&D New Character Creator is just one of the many tools that I want to create. I also have plans to develop and implement some of the following in varying degrees and capacities:</p>
           <div>
             <ul>
+              <li><b>Character Manager</b>: A companion tool alongside the Character Creator. The Character Manager is meant to serve as a digital character sheet which will allow users to edit and add new things to their character after creation. Saving and loading characters will also be a possibility, as well as user authentication to allow users to manage multiple characters.</li>
               <li><b>Class Creator</b>: A class creator tool that allows anyone to easily and quickly create a class using the 5th Edition rules, features, spells, etc. </li>
             </ul>
           </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ExtraChoiceSnippet from './ExtraChoiceSnippet/ExtraChoiceSnippet.js';
-import Races from '../../../../Data/Races.js';
 import Languages from '../../../../Data/Languages.js';
 
 class RaceSnippet extends Component {
@@ -92,7 +91,9 @@ class RaceSnippet extends Component {
   }
 
   render() {
-    const selectedRace = Races[this.props.pc.race];
+    console.log(this.props.data);
+    const raceData = this.props.data.raceData;
+    const selectedRace = raceData[this.props.pc.race];
     return (
       // change divs into sections inside of 'race-snippet'
       <div className='snippet'>
@@ -130,7 +131,7 @@ class RaceSnippet extends Component {
         <div className='extra-choices'>
           {this.findExtraChoices(selectedRace)}
           {
-            (Races[this.props.pc.race].raceChoices[this.props.pc.extraRaceChoiceSource] !== undefined
+            (raceData[this.props.pc.race].raceChoices[this.props.pc.extraRaceChoiceSource] !== undefined
             && this.props.pc.race !== 'halfElf' && this.props.pc.race !== 'human') &&
               <ExtraChoiceSnippet pc={this.props.pc} />
           }
