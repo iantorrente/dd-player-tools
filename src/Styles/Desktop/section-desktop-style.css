@@ -10,6 +10,7 @@
   height: 30px;
 }
 
+/* Size changes when snippet is loaded. Look into it */
 .step-section {
   /* background-color: rgb(239, 229, 213); */
   background-color: rgba(163, 163, 163, 0.829);

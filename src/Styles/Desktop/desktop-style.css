@@ -5,10 +5,12 @@
 @media only screen and (min-width: 415px) {
   body {
     background-color: rgb(126, 0, 0);
+    background-image: url('http://getwallpapers.com/wallpaper/full/3/f/1/59952.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
     text-align: center;
-    margin: 0;
-    padding: 0;
-    height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
@@ -16,14 +18,11 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  html, .App, #root {
+  html, body, .App, #root {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-image: url('http://getwallpapers.com/wallpaper/full/3/f/1/59952.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100%;
+    width: 100%;
   }
   
   code {
