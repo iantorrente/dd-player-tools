@@ -245,9 +245,6 @@ class ClassSnippet extends Component {
           <h4>Equipment Choices:</h4>
           {this.getEquipment(selectedClass)}
         </section>
-        <Link to='/character-creation/background'>
-          <button className='commit-btn'>Commit</button>
-        </Link>
       </div>
     );
   }

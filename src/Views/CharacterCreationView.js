@@ -325,7 +325,7 @@ class CharacterCreationView extends Component {
             />}
         />
         <div className='character-preview-nav'>
-          <Link onClick={this.props.setActiveTab} to='/character-creation/character-preview'>
+          <Link onClick={this.setActiveTab} to='/character-creation/character-preview'>
             <button source='character-preview'  className='character-preview-btn'>Preview Character</button>
           </Link>
         </div>

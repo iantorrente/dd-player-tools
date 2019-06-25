@@ -136,9 +136,6 @@ class RaceSnippet extends Component {
               <ExtraChoiceSnippet pc={this.props.pc} />
           }
         </div>
-        <Link to='/character-creation/class'>
-          <button className='commit-btn'>Commit</button>
-        </Link>
       </div>
     );
   }
