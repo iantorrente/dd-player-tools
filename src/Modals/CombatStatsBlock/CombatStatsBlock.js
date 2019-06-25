@@ -5,7 +5,6 @@ import HPItem from './HPItem.js';
 
 class CombatStatsBlock extends Component {
   render() {
-    console.log(this.props.pc);
     return (
       <div className='combat-stats-block'>
         <section className='row'>

@@ -56,11 +56,7 @@ class CharacterPreview extends Component {
         <SkillBlock pc={this.props.pc} />
         <FeaturesBlock pc={this.props.pc} />
         <LanguagesBlock pc={this.props.pc} />
-        {/* Will have to come back to this when the item data refactor is done
-          WeaponsBlock 
-        */}
         <EquipmentBlock pc={this.props.pc} />
-        {/* <button onClick={this.props.handleCharacterSave}>Save Character</button> */}
       </div>
     )
   }

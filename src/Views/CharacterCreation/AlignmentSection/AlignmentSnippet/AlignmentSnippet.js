@@ -25,9 +25,6 @@ class AlignmentSnippet extends Component {
           <h3>Examples:</h3>
           {this.findAlignmentExamples(alignmentData[alignment])}
         </section>
-        <Link to='/character-creation/character-preview'> 
-          <button className='commit-btn'>Finalize</button>
-        </Link>
       </div>
     )
   }

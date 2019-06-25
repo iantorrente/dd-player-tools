@@ -43,14 +43,12 @@ class Landing extends Component {
             </p>
             <ol>
               <li>Begin creating a character by pressing 'Create A Character'</li>
-              <li>Select a <b>Race</b>.</li> 
-              <li>Most classes have a <b>Racial Choice</b>, be sure to choose one before moving on.</li>
-              <li>When you're satisfied, press the 'Next' button which will take you to the next step.</li>
-              <li>Select a <b>Class</b>.</li>
-              <li>With each class you'll get to choose <b>Skills</b> to be proficient in, be sure to make your options before moving on.</li>
-              <li>You will also be able to choose starting equipment, as well as extra <b>Class Options</b> if the class has them available</li>
-              <li>When you're satisfied, press the 'Next' button which will take you to the next step.</li>
-              <li></li>
+              <li>Creating a character requires you to select a <b>Race</b>, <b>Class</b>, <b>Background</b>, and <b>Alignment</b>. With this tool, you can jump between any of those sections by clicking on the tabs.</li> 
+              <li>At any time, you can see how your character is coming along by clicking on the <b>Preview Character</b> button on the top.</li>
+              <li>Distributing stats (strength, constitution, dexterity, etc.) can only be done by randomizing. This takes the 5th Edition rule of rolling 4d6, dropping the lowest number, and adding the remaining numbers together. The tool automatically does this and also adds any relevant racial modifiers.</li>
+              <li>When selecting a <b>Class</b>, be sure to choose skills for your character. This will allow them to be <b>proficient</b> in that skill which gives them more to that specific skill.</li>
+              <li><b>Alignments</b> are, for the most part, purely for roleplay. This tool gives a brief explanation of each alignment choice, as well as examples from pop culture.</li>
+              <li>When you're satisfied with your character, you can navigate to the <b>Character Preview</b> using the <b>Preview Character</b> button. Print out a physical character sheet and fill it out with what's displayed in this screen. In a future update, users will be able to either export their choices to a PDF that will automatically fill out their character sheet for them, or save their character to their username.</li>
             </ol>
           </div>
         </section>

@@ -22,7 +22,7 @@ class FeaturesBlock extends Component {
 
     const returnFeatures = features.map((feature, i) => {
       return (
-        <div key={i}>
+        <div className='feature-item long-item' key={i}>
           <h4>{feature}</h4>
         </div>
       )

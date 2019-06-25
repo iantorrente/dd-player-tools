@@ -71,9 +71,6 @@ class BackgroundSnippet extends Component {
           <h3>Equipment:</h3>
           {this.findEquipment(background)}
         </section>
-        <Link to='/character-creation/alignment'>
-          <button className='commit-btn'>Commit</button>
-        </Link>
       </div>
     )
   }

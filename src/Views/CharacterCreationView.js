@@ -66,15 +66,15 @@ class CharacterCreationView extends Component {
   }
 
   componentDidMount() {
-    const { API_ENDPOINT } = require('../config.js');
-    this.fetchRaceData(API_ENDPOINT);
-    this.fetchClassData(API_ENDPOINT);
-    this.fetchBackgroundData(API_ENDPOINT);
-    this.fetchAlignmentData(API_ENDPOINT);
+    const { API_BASE_URL } = require('../config.js');
+    this.fetchRaceData(API_BASE_URL);
+    this.fetchClassData(API_BASE_URL);
+    this.fetchBackgroundData(API_BASE_URL);
+    this.fetchAlignmentData(API_BASE_URL);
   }
 
-  fetchRaceData(API_ENDPOINT) {
-    fetch(`${API_ENDPOINT}api/races-data`)
+  fetchRaceData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/races-data`)
     .then(results => {
       return results.json();
     })
@@ -87,8 +87,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchClassData(API_ENDPOINT) {
-    fetch(`${API_ENDPOINT}api/classes-data`)
+  fetchClassData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/classes-data`)
     .then(results => {
       return results.json();
     })
@@ -101,8 +101,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchBackgroundData(API_ENDPOINT) {
-    fetch(`${API_ENDPOINT}api/backgrounds-data`)
+  fetchBackgroundData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/backgrounds-data`)
     .then(results => {
       return results.json();
     })
@@ -115,8 +115,8 @@ class CharacterCreationView extends Component {
     })
   }
 
-  fetchAlignmentData(API_ENDPOINT) {
-    fetch(`${API_ENDPOINT}api/alignments-data`)
+  fetchAlignmentData(API_BASE_URL) {
+    fetch(`${API_BASE_URL}api/alignments-data`)
     .then(results => {
       return results.json();
     })
@@ -325,7 +325,7 @@ class CharacterCreationView extends Component {
             />}
         />
         <div className='character-preview-nav'>
-          <Link onClick={this.props.setActiveTab} to='/character-creation/character-preview'>
+          <Link onClick={this.setActiveTab} to='/character-creation/character-preview'>
             <button source='character-preview'  className='character-preview-btn'>Preview Character</button>
           </Link>
         </div>
