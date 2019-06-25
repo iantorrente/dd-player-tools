@@ -34,8 +34,6 @@ class EquipmentBlock extends Component {
           );
     });
 
-    console.log(equipment);
-
     return returnEquipment;
   }
 
